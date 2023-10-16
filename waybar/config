@@ -1,0 +1,145 @@
+{
+    "modules-left": ["hyprland/workspaces", "custom/media"],
+    "modules-center": ["clock", "idle_inhibitor", "custom/shamsi"],
+    "modules-right": ["hyprland/mode", "tray", "custom/scratchpad-indicator", "hyprland/language", "custom/updates", "network", "pulseaudio", "custom/screenshot", "custom/power"],
+
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "hyprland/mode": {
+        "max-length": 50,
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "network": {
+        "tooltip-format": "{essid} ({signalStrength}%) ",
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname} ",
+        "format-disconnected": "", 
+        "max-length": 50,
+        "on-click": "networkmanager_dmenu"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+		"on-click": "toggleRemote"
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}",
+        "format": "{:%H:%M:%OS}",
+        "interval": 1,
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon} ",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "0% {icon} ",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+	"custom/power": {
+		"format": " ",
+		"on-click": "~/.config/rofi/applets/bin/powermenu.sh"
+	},
+    "custom/scratchpad-indicator": {
+        "format-text": "{}",
+        "return-type": "json",
+        "interval": 3,
+        "exec": "~/.local/bin/scratchpad-indicator 2> /dev/null",
+        "exec-if": "exit 0",
+        "on-click": "hyprctl 'scratchpad show'",
+        "on-click-right": "hyprctl 'move scratchpad'"
+    },
+    "custom/notification": {
+        "tooltip": true,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "custom/media": {
+        "format": "{}",
+        "return-type": "json",
+        "max-length": 40,
+		"on-click": "playerctl play-pause",
+		"on-scroll-up": "playerctl position 5+",
+		"on-scroll-down": "playerctl position 5-",
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        // apt install gir1.2-playerctl-2.0
+        "exec": "$HOME/.config/waybar/resources/./player.sh 2> /dev/null"
+    },
+    "custom/screenshot": {
+        "format": " ",
+        "tooltip": false,
+        "min-length": 3,
+        "on-click": "sleep 0.1 && grim -g \"$(slurp)\" - | swappy -f -",
+        "on-click-middle": "grim -g \"$(hyprctl -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | \"\\(.x),\\(.y) \\(.width)x\\(.height)\"' | slurp)\" - | swappy -f -"
+    },
+    "custom/shamsi": {
+        "format": "{}",
+        "escape": true,
+        "tooltip": true,
+        "return-type": "json",
+        "min-length": 14,
+        "exec": "$HOME/.config/waybar/resources/shamsi.sh",
+        "interval": 60
+    },
+    "custom/updates": {
+        "format": "{} Updates 󰚰",
+        "exec": "checkupdates | wc -l",
+        "interval": 600
+    },
+    "layer": "top"
+}
