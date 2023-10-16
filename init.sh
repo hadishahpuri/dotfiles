@@ -24,6 +24,11 @@ sudo pacman -S \
 echo "Y N N" | ./lunarvim_install.sh
 # Add lvim to path
 ./bashrc.sh
+rm ~/.config/lvim/ -rf 2>&1 /dev/null
+mkdir -p ~/.config/lvim/lua/user
+ln -s ${PWD}/lvim/config.lua ~/.config/lvim/config.lua
+ln -s ${PWD}/lvim/lv-settings.lua ~/.config/lvim/lv-settings.lua
+ln -s ${PWD}/lvim/lua/user/plugins.lua ~/.config/lvim/lua/user/plugins.lua
 
 # Starship
 sudo pacman -S \
@@ -57,7 +62,8 @@ sudo pacman -S \
     swayidle \
     xdg-desktop-portal-wlr \
     hyprpaper \
-    hyprland
+    hyprland \
+    htop
 
 yay -Sy \
     swaylock-effects-git \
