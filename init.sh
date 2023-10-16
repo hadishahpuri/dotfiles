@@ -10,13 +10,20 @@ ln -s ${PWD}/fish/completions ~/.config/fish/completions
 ln -s ${PWD}/fish/functions ~/.config/fish/functions
 ln -s ${PWD}/fish/config.fish ~/.config/fish/config.fish
 
-# NVim & Lunarvim
+# NVim
 sudo pacman -S \
     neovim \
     bat \
     ripgrep \
     noto-fonts-emoji \
-    fzf
+    fzf \
+    nodejs \
+    npm
+
+# Lunarvim
+echo "Y N N" | ./lunarvim_install.sh
+# Add lvim to path
+./bashrc.sh
 
 # Starship
 sudo pacman -S \
@@ -28,7 +35,7 @@ sudo pacman -S \
 sudo pacman -S \
     wezterm
 rm ~/.wezterm.lua 2>&1 /dev/null
-ln -s ${PWD}/wezterm.lua ~/.wezterm.lua
+ln -s ${PWD}/wezterm/wezterm.lua ~/.wezterm.lua
 
 # Filemanager
 # sudo pacman -S \
@@ -49,13 +56,16 @@ sudo pacman -S \
     swaybg \
     swayidle \
     xdg-desktop-portal-wlr \
-    hyprpaper
+    hyprpaper \
+    hyprland
 
 yay -Sy \
     swaylock-effects-git \
     google-chrome
 
+# Hyprland
 rm -rf ~/.config/hypr/hyprland.conf 2>&1 /dev/null
+rm -rf ~/.config/hypr/hyprpaper.conf 2>&1 /dev/null
 ln -s ${PWD}/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
 ln -s ${PWD}/hypr/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
 
@@ -65,6 +75,14 @@ sudo pacman -S \
     pavucontrol
 rm -rf ~/.config/waybar 2>&1 /dev/null
 ln -s ${PWD}/waybar ~/.config/waybar
+
+# Swaylock
+rm -rf ~/.config/swaylock/config 2>&1 /dev/null
+ln -s ${PWD}/swaylock/config ~/.config/swaylock/config
+
+# Swayidle
+rm -rf ~/.config/swayidle/config 2>&1 /dev/null
+ln -s ${PWD}/swayidle/config ~/.config/swayidle/config
 
 # Network manager by Rofi
 # ln -s ${PWD}/networkmanager-dmenu ~/.config/networkmanager-dmenu
