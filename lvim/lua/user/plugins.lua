@@ -26,5 +26,6 @@ lvim.plugins = {
   "tpope/vim-unimpaired",
   "yuchanns/phpfmt.nvim",
   "tpope/vim-fugitive",
-  "prettier/vim-prettier"
+  "prettier/vim-prettier",
+  "jwalton512/vim-blade"
 }
