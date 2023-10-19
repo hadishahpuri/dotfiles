@@ -1,7 +1,7 @@
 {
     "modules-left": ["hyprland/workspaces", "custom/media"],
     "modules-center": ["clock", "idle_inhibitor", "custom/shamsi"],
-    "modules-right": ["hyprland/mode", "tray", "custom/scratchpad-indicator", "hyprland/language", "custom/updates", "network", "pulseaudio", "custom/screenshot", "custom/power"],
+    "modules-right": ["tray", "custom/scratchpad-indicator", "hyprland/language", "custom/updates", "network", "pulseaudio", "custom/screenshot", "custom/power", "battery"],
 
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -141,5 +141,17 @@
         "exec": "checkupdates | wc -l",
         "interval": 600
     },
-    "layer": "top"
+    "layer": "top",
+    "battery": {
+        "states": {
+              "warning": 30,
+              "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󱈏{capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-full": " {capacity}%",
+        "format-icons": ["󱟢", "󰂄", "󱈏"]
+	},
 }

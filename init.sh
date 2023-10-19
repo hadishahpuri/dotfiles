@@ -91,8 +91,15 @@ ln -s ${PWD}/swaylock/config ~/.config/swaylock/config
 rm -rf ~/.config/swayidle/config 2>&1 /dev/null
 ln -s ${PWD}/swayidle/config ~/.config/swayidle/config
 
-# Network manager by Rofi
-# ln -s ${PWD}/networkmanager-dmenu ~/.config/networkmanager-dmenu
+# Rofi
+rm -rf ~/.config/rofi/*
+ln -s ${PWD}/rofi/applets ~/.config/rofi/
+ln -s ${PWD}/rofi/colors ~/.config/rofi/
+ln -s ${PWD}/rofi/config.rasi ~/.config/rofi/
+ln -s ${PWD}/rofi/images ~/.config/rofi/
+ln -s ${PWD}/rofi/launchers ~/.config/rofi/
+ln -s ${PWD}/rofi/powermenu ~/.config/rofi/
+ln -s ${PWD}/rofi/scripts ~/.config/rofi/
 
 # Fonts
 # https://github.com/rastikerdar/vazir-code-font/releases
