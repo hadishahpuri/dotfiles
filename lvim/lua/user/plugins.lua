@@ -27,5 +27,5 @@ lvim.plugins = {
   "yuchanns/phpfmt.nvim",
   "tpope/vim-fugitive",
   "prettier/vim-prettier",
-  "jwalton512/vim-blade"
+  "EmranMR/tree-sitter-blade"
 }
