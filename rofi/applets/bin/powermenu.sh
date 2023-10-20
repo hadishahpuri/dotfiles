@@ -7,7 +7,7 @@
 
 # Import Current Theme
 source "$HOME"/.config/rofi/applets/shared/theme.bash
-theme="~/.config/rofi/applets/type-4/style-1.rasi"
+theme="~/.config/rofi/applets/type-4/style-3.rasi"
 
 # Theme Elements
 prompt="`hostname`"
