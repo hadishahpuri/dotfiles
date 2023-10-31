@@ -20,6 +20,6 @@ local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   {
     name = "prettier",
-    filetypes = { "typescript", "typescriptreact", "php", "tsx", "json" },
+    filetypes = { "typescript", "typescriptreact", "php", "tsx", "json", "css" },
   },
 }

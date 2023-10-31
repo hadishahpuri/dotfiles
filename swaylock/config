@@ -1,4 +1,4 @@
-image=~/Pictures/taylor-williams-vMLFbB6dmZ0-unsplash.jpg
+image=$(find ~/Pictures/ -regex '.*\.\(jpg\|jpeg|png\)' | shuf -n 1)
 clock
 indicator
 indicator-radius=100
