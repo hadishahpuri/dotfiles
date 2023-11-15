@@ -1,14 +1,14 @@
 image=$(find ~/Pictures/ -regex '.*\.\(jpg\|jpeg|png\)' | shuf -n 1)
 clock
 indicator
-indicator-radius=100
-indicator-thickness=7
-effect-blur=7x5
+indicator-radius=80
+indicator-thickness=4
+effect-blur=2x1
 effect-vignette=0.5:0.5 
-ring-color=bb00cc
+ring-color=4387c2
 key-hl-color=880033
 line-color=00000000
 inside-color=00000088
 separator-color=00000000
-grace=10
+grace=1
 fade-in=2
