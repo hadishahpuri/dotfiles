@@ -1,7 +1,7 @@
 {
     "modules-left": ["hyprland/workspaces", "custom/media"],
     "modules-center": ["clock", "idle_inhibitor", "custom/shamsi"],
-    "modules-right": ["tray", "custom/scratchpad-indicator", "hyprland/language", "custom/updates", "network", "pulseaudio", "custom/screenshot", "custom/power", "battery"],
+    "modules-right": ["tray", "custom/scratchpad-indicator", "hyprland/language", "custom/updates", "network", "custom/notification", "pulseaudio", "custom/screenshot", "custom/power", "battery"],
 
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -94,10 +94,10 @@
         "tooltip": true,
         "format": "{icon}",
         "format-icons": {
-            "notification": "<span foreground='red'><sup></sup></span>",
-            "none": "",
-            "dnd-notification": "<span foreground='red'><sup></sup></span>",
-            "dnd-none": ""
+            "notification": "  <span foreground='red'><sup></sup></span> ",
+            "none": "  ",
+            "dnd-notification": " <span foreground='red'><sup></sup></span> ",
+            "dnd-none": "  "
         },
         "return-type": "json",
         "exec-if": "which swaync-client",
@@ -137,7 +137,7 @@
         "interval": 60
     },
     "custom/updates": {
-        "format": "{} Updates 󰚰",
+        "format": "{} 󰚰",
         "exec": "checkupdates | wc -l",
         "interval": 600
     },
