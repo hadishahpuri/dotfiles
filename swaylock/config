@@ -3,8 +3,8 @@ clock
 indicator
 indicator-radius=80
 indicator-thickness=4
-effect-blur=2x1
 effect-vignette=0.5:0.5 
+#effect-blur=2x1
 ring-color=4387c2
 key-hl-color=880033
 line-color=00000000
