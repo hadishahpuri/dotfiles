@@ -68,7 +68,8 @@ sudo pacman -S \
 yay -Sy \
     swaylock-effects-git \
     google-chrome \
-    cronie
+    cronie \
+    swaync
 
 # Hyprland
 rm -rf ~/.config/hypr/hyprland.conf 2>&1 /dev/null
@@ -118,7 +119,7 @@ systemctl enable --now --user gnome-keyring-daemon
 
 # CRON setup
 crontab -l > mycron
-echo "0 1 * * * sh ~/dotfiles/bing_wallpaper.sh" >> mycron
+echo "1 * * * * sh ~/dotfiles/bing_wallpaper.sh" >> mycron
 echo "" >> mycron
 crontab mycron
 rm mycron
