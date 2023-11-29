@@ -123,3 +123,8 @@ echo "1 * * * * sh ~/dotfiles/bing_wallpaper.sh" >> mycron
 echo "" >> mycron
 crontab mycron
 rm mycron
+
+# Add git config for message templates
+sudo pacman -Sy lazygit
+ln -s ${PWD}/.git-templates ~/.git-templates
+git config --global init.templatedir '~/.git-templates'

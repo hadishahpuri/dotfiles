@@ -22,6 +22,8 @@ lvim.plugins = {
       vim.g.gitblame_enabled = 0
     end,
   },
+  "kdheepak/lazygit.nvim",
+  "kylechui/nvim-surround",
   "preservim/nerdtree",
   "tpope/vim-unimpaired",
   "yuchanns/phpfmt.nvim",
