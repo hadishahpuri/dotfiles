@@ -1,0 +1,48 @@
+#!/bin/bash
+
+global_rematch() { 
+    local s=$1 regex=$2 
+    while [[ $s =~ $regex ]]; do 
+        echo "${BASH_REMATCH[1]}"
+        s=${s#*"${BASH_REMATCH[1]}"}
+    done
+}
+
+set_icon() {
+  local t=$1
+  case $t in
+    'f')
+      echo '✨'
+      ;;
+
+    'b')
+      echo '🐛'
+      ;;
+
+    'h')
+      eco '🚑'
+      ;;
+
+    'w')
+      echo '🚧'
+      ;;
+
+    'i')
+      echo '🎉'
+      ;;
+      
+    'a')
+      echo '🎨'
+      ;;
+  esac
+}
+
+msg=$(< .git/COMMIT_EDITMSG)
+type=$(global_rematch "$msg" "%T([a-z])")
+task=$(global_rematch "$msg" '%I([[:digit:]]+)')
+message=$(global_rematch "$msg" "%M (.*)")
+icon=$(set_icon "$type")
+f="$icon [$task] $message"
+echo $f > .git/COMMIT_EDITMSG
+exit 0
+
