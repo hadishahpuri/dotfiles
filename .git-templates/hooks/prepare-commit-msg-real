@@ -37,9 +37,15 @@ set_icon() {
   esac
 }
 
+generate_task_number() {
+  local id=$1 type=$2
+  [ ! -z "$id" ] && echo $id || echo "$type-$RANDOM" | tr '[:lower:]' '[:upper:]'
+}
+
 msg=$(< .git/COMMIT_EDITMSG)
 type=$(global_rematch "$msg" "%T([a-z])")
 task=$(global_rematch "$msg" '%I([[:digit:]]+)')
+task=$(generate_task_number "$task" "$type")
 message=$(global_rematch "$msg" "%M (.*)")
 icon=$(set_icon "$type")
 f="$icon [$task] $message"
