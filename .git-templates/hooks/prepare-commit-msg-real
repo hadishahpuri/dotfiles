@@ -20,7 +20,7 @@ set_icon() {
       ;;
 
     'h')
-      eco '🚑'
+      echo '🚑'
       ;;
 
     'w')
@@ -43,12 +43,14 @@ generate_task_number() {
 }
 
 msg=$(< .git/COMMIT_EDITMSG)
+echo $msg
 type=$(global_rematch "$msg" "%T([a-z])")
 task=$(global_rematch "$msg" '%I([[:digit:]]+)')
 task=$(generate_task_number "$task" "$type")
 message=$(global_rematch "$msg" "%M (.*)")
 icon=$(set_icon "$type")
 f="$icon [$task] $message"
+echo $f
 echo $f > .git/COMMIT_EDITMSG
 exit 0
 

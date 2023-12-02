@@ -128,3 +128,4 @@ rm mycron
 sudo pacman -Sy lazygit
 ln -s ${PWD}/.git-templates ~/.git-templates
 git config --global init.templatedir '~/.git-templates'
+git config --global commit.template '~/.git-templates/.gitmessage.txt'
