@@ -126,6 +126,6 @@ rm mycron
 
 # Add git config for message templates
 sudo pacman -Sy lazygit
-ln -s ${PWD}/.git-templates ~/.git-templates
-git config --global init.templatedir '~/.git-templates'
-git config --global commit.template '~/.git-templates/.gitmessage.txt'
+# ln -s ${PWD}/.git-templates ~/.git-templates
+# git config --global init.templatedir '~/.git-templates'
+# git config --global commit.template '~/.git-templates/.gitmessage.txt'
