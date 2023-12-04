@@ -63,7 +63,7 @@ sudo pacman -S \
     xdg-desktop-portal-wlr \
     hyprpaper \
     hyprland \
-    htop
+    btop
 
 yay -Sy \
     swaylock-effects-git \
