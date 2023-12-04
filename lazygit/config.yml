@@ -26,7 +26,7 @@ customCommands:
       - type: 'input'
         title: 'Enter your commit ID'
         key: 'CommitId'
-        initialValue: ''
+        initialValue: '-'
       - type: 'input'
         title: 'Enter your commit message'
         key: 'CommitMessage'

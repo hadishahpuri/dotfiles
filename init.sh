@@ -52,7 +52,7 @@ ln -s ${PWD}/wezterm/wezterm.lua ~/.wezterm.lua
 
 # WM
 sudo pacman -S \
-    wl-clipboard \
+    cliphist \
     rofi \
     highlight \
     swappy \
