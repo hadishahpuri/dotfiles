@@ -1,3 +1,0 @@
-#!/bin/sh
-
-sh ~/.git-templates/hooks/prepare-commit-msg-real

@@ -29,5 +29,6 @@ lvim.plugins = {
   "yuchanns/phpfmt.nvim",
   "tpope/vim-fugitive",
   "prettier/vim-prettier",
-  "EmranMR/tree-sitter-blade"
+  "EmranMR/tree-sitter-blade",
+  "prettier/plugin-php"
 }
