@@ -61,7 +61,6 @@ sudo pacman -S \
     swaybg \
     swayidle \
     xdg-desktop-portal-wlr \
-    hyprpaper \
     hyprland \
     btop
 
@@ -69,14 +68,19 @@ yay -Sy \
     swaylock-effects-git \
     google-chrome \
     cronie \
-    swaync
+    swaync \
+    swww \
+    yay -S waypaper-git \
+    udiskie \
+    sassc \
+    swayosd
 
 # Hyprland
 rm -rf ~/.config/hypr/hyprland.conf 2>&1 /dev/null
-rm -rf ~/.config/hypr/hyprpaper.conf 2>&1 /dev/null
+# rm -rf ~/.config/hypr/hyprpaper.conf 2>&1 /dev/null
 mkdir -p ~/.config/hypr
 ln -s ${PWD}/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
-ln -s ${PWD}/hypr/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
+# ln -s ${PWD}/hypr/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
 
 # Bar
 sudo pacman -S \

@@ -1,7 +1,7 @@
 {
     "modules-left": ["hyprland/workspaces", "custom/media"],
     "modules-center": ["clock", "idle_inhibitor", "custom/shamsi"],
-    "modules-right": ["tray", "custom/scratchpad-indicator", "hyprland/language", "custom/updates", "network", "custom/notification", "pulseaudio", "custom/screenshot", "custom/power", "battery"],
+    "modules-right": ["tray", "custom/scratchpad-indicator", "hyprland/language", "custom/updates", "custom/notification", "group/group-audio", "custom/screenshot", "custom/power", "battery"],
 
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -59,24 +59,43 @@
         "format": "{:%H:%M:%OS}",
         "interval": 1,
     },
-    "pulseaudio": {
-        "format": "{volume}% {icon} ",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": "0% {icon} ",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
-    },
+  "group/group-audio": {
+      "orientation": "horizontal",
+      "drawer": {
+          "transition-duration": 500,
+          "children-class": "",
+          "transition-left-to-right": false,
+      },
+      "modules": [
+          "pulseaudio",
+          "pulseaudio/slider",
+      ]
+  },
+  "pulseaudio": {
+      "scroll-step": 2,
+      "format": "{volume}% {icon}",
+      "format-muted": "󰝟",
+      "format-source": "",
+      "format-source-muted": "",
+      "format-icons": {
+          "speaker": "󰕾",
+          "hdmi": "󰓃",
+          "headphone": "󰋋",
+          "hands-free": "?",
+          "headset": "󰋎",
+          "phone": "",
+          "portable": "",
+          "car": "",
+          "default": "󰕾"
+      },
+      "on-click-right": "pavucontrol",
+      "on-click": "swayosd-client --output-volume=mute-toggle",
+      "on-scroll-up": "swayosd-client --output-volume=raise",
+      "on-scroll-down": "swayosd-client --output-volume=lower"
+  },
+  "pulseaudio/slider": {
+      "orientation": "horizontal"
+  },
 	"custom/power": {
 		"format": " ",
 		"on-click": "~/.config/rofi/applets/bin/powermenu.sh"
