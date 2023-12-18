@@ -70,7 +70,7 @@ yay -Sy \
     cronie \
     swaync \
     swww \
-    yay -S waypaper-git \
+    waypaper-git \
     udiskie \
     sassc \
     swayosd
