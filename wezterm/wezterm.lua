@@ -26,13 +26,13 @@ function update_right(window, pane, is_medium_window, is_big_window)
   local seperator = utf8.char(0xe0b6)
 
   local bg_colors = {
-    pallete[5],
-    pallete[1],
+    pallete[2],
+    pallete[3],
   }
 
   local fg_colors = {
     pallete[3],
-    '#ffffff',
+    pallete[5],
   }
 
   -- Ssh Hostname
@@ -65,11 +65,11 @@ function update_left(window, pane, is_medium_window, is_big_window)
   local num_cells = 0
   local seperator = utf8.char(0xe0ba)
   local bg_colors = {
-    pallete[4],
+    pallete[2],
   }
 
   local fg_colors = {
-    pallete[3],
+    pallete[5],
   }
 
   -- Title
@@ -102,11 +102,10 @@ end
 
 return {
   automatically_reload_config = true,
-  color_scheme = "Catppuccin Macchiato",
-  font = wezterm.font_with_fallback {
-    "Monego Ligatures",
-    "Vazir Code"
-  },
+  color_scheme = "AlienBlood",
+  font = wezterm.font(
+    "Fira Code"
+  ),
   colors = {
     tab_bar = {
       background = topbarColor,
@@ -132,9 +131,9 @@ return {
   },
 
   keys = {
-    { key = "j", mods = "META", action = act.SendKey { key = 'DownArrow' } },
-    { key = "k", mods = "META", action = act.SendKey { key = 'UpArrow' } },
-    { key = "F11", mods = "", action = "ToggleFullScreen" },
+    { key = "j",   mods = "META", action = act.SendKey { key = 'DownArrow' } },
+    { key = "k",   mods = "META", action = act.SendKey { key = 'UpArrow' } },
+    { key = "F11", mods = "",     action = "ToggleFullScreen" },
   },
 
   set_environment_variables = {
