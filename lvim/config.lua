@@ -5,6 +5,7 @@
 
 reload('user.plugins')
 lvim.builtin.telescope.active = true
+lvim.builtin.telescope.defaults.layout_strategy = "horizontal"
 lvim.builtin.telescope.theme = "ivy"
 vim.o.wrap = true
 lvim.format_on_save.enabled = true
