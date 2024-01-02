@@ -13,3 +13,20 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
+
+[keys.normal]
+space.w= ":w"
+space.q = ":q"
+
+[editor.indent-guides]
+render = true
+character = "▏"
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-type", "total-line-numbers", "file-encoding"]
+center = []
+right = ["selections", "primary-selection-length", "position", "position-percentage", "spacer", "diagnostics", "workspace-diagnostics", "version-control"]
