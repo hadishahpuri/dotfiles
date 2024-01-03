@@ -1,6 +1,6 @@
-[language-server.phpactor]
-command = "phpactor"
+[language-server.vscode-html-language-server]
+command = "vscode-html-language-server"
 args = [ "language-server" ]
 [[language]]
-name = "php"
-language-servers = [ "phpactor" ]
+name = "html"
+language-servers = [ "vscode-html-language-server" ]

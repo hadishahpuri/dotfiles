@@ -1,4 +1,4 @@
-theme = "onedark"
+theme = "catppuccin_macchiato"
 
 [editor]
 line-number = "relative"
@@ -17,6 +17,12 @@ hidden = false
 [keys.normal]
 space.w= ":w"
 space.q = ":q"
+
+[keys.normal."]"]
+b = "goto_next_buffer"
+
+[keys.normal."["]
+b = "goto_previous_buffer"
 
 [editor.indent-guides]
 render = true

@@ -102,7 +102,7 @@ end
 
 return {
   automatically_reload_config = true,
-  color_scheme = "AlienBlood",
+  color_scheme = "Catppuccin Macchiato",
   font = wezterm.font(
     "Fira Code"
   ),
