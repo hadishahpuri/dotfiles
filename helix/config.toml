@@ -5,6 +5,7 @@ line-number = "relative"
 mouse = false
 auto-completion = true
 bufferline = "always"
+idle-timeout = 20
 
 [editor.cursor-shape]
 insert = "bar"
@@ -14,15 +15,8 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
-[keys.normal]
-space.w= ":w"
-space.q = ":q"
-
-[keys.normal."]"]
-b = "goto_next_buffer"
-
-[keys.normal."["]
-b = "goto_previous_buffer"
+[editor.soft-wrap]
+enable = true
 
 [editor.indent-guides]
 render = true
@@ -36,3 +30,13 @@ display-inlay-hints = true
 left = ["mode", "spinner", "file-name", "file-type", "total-line-numbers", "file-encoding"]
 center = []
 right = ["selections", "primary-selection-length", "position", "position-percentage", "spacer", "diagnostics", "workspace-diagnostics", "version-control"]
+
+[keys.normal]
+space.w= ":w"
+space.q = ":q"
+
+[keys.normal."]"]
+b = "goto_next_buffer"
+
+[keys.normal."["]
+b = "goto_previous_buffer"

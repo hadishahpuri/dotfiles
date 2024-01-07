@@ -31,5 +31,13 @@ customCommands:
         title: 'Enter your commit message'
         key: 'CommitMessage'
         initialValue: ''
-    command: "git commit -m '{{.Form.CommitType}} [{{.Form.CommitId}}] {{.Form.CommitMessage}}'"
+      - type: 'menu'
+        title: 'Pre commit msg hook?'
+        key: 'PreCommitHook'
+        options:
+          - name: 'Yes'
+            value: ''
+          - name: 'No'
+            value: '--no-verify'
+    command: "git commit -m '{{.Form.CommitType}} [{{.Form.CommitId}}] {{.Form.CommitMessage}}' {{.Form.PreCommitHook}}"
     loadingText: 'Commiting...'

@@ -1,6 +1,17 @@
 [language-server.vscode-html-language-server]
 command = "vscode-html-language-server"
 args = [ "language-server" ]
+
 [[language]]
 name = "html"
-language-servers = [ "vscode-html-language-server" ]
+language-servers = [ "vscode-html-language-server", "scls" ]
+
+[language-server.scls]
+command = "simple-completion-language-server"
+
+[language-server.scls.config]
+max_completion_items = 20
+snippets_first = true
+feature_words = true
+feature_snippets = true
+feature_unicode_input = true
