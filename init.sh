@@ -42,13 +42,15 @@ sudo pacman -S \
 rm ~/.wezterm.lua 2>&1 /dev/null
 ln -s ${PWD}/wezterm/wezterm.lua ~/.wezterm.lua
 
-# Filemanager
-# sudo pacman -S \
-#     nautilus \
-#     ranger
-# rm ~/.config/ranger/ranger.conf 2>&1 /dev/null
-# mkdir ~/.config/ranger -p
-# ln -s ${PWD}/ranger.conf ~/.config/ranger/ranger.conf
+# Yazi File manager
+sudo pacman -S \
+    yazi \
+    ffmpegthumbnailer \
+    unarchiver \
+    jq \
+    poppler \
+    fd \
+    zoxide
 
 # WM
 sudo pacman -S \
@@ -73,7 +75,9 @@ yay -Sy \
     waypaper-git \
     udiskie \
     sassc \
-    swayosd
+    swayosd \
+    helix \
+    zellij
 
 # Hyprland
 rm -rf ~/.config/hypr/hyprland.conf 2>&1 /dev/null
@@ -96,6 +100,14 @@ ln -s ${PWD}/swaylock/config ~/.config/swaylock/config
 # Swayidle
 rm -rf ~/.config/swayidle/config 2>&1 /dev/null
 ln -s ${PWD}/swayidle/config ~/.config/swayidle/config
+
+# Zellij
+rm -rf ~/.config/zellij
+ln -s ${PWD}/zellij ~/.config/zellij
+
+# Helix
+rm -rf ~/.config/helix 2>&1 /dev/null
+ln -s ${PWD}/helix ~/.config/helix
 
 # Rofi
 rm -rf ~/.config/rofi/*

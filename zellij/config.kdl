@@ -1,0 +1,139 @@
+keybinds clear-defaults=true {
+    shared_except "normal" {
+        bind "Esc" { SwitchToMode "normal"; }
+    }
+
+    shared_except "normal" "entersearch" {
+        bind "Enter" { SwitchToMode "normal"; }
+    }
+
+    shared_except "locked" {
+        bind "Alt g" {
+            Run "lazygit"  {
+                close_on_exit true
+            };
+            TogglePaneEmbedOrFloating;
+        }
+        bind "Alt y" {
+            Run "yazi"  {
+                close_on_exit true
+            };
+            TogglePaneEmbedOrFloating;
+        }        
+        bind "Alt t" { NewTab; }
+        bind "F9" { CloseTab; }
+        bind "Alt h" { GoToPreviousTab; }
+        bind "Alt l" { GoToNextTab; }
+        bind "Alt z" { SwitchToMode "RenameTab"; }
+        bind "Alt ;" { ToggleFloatingPanes; }
+        bind "Alt a" { TogglePaneEmbedOrFloating; }
+        bind "Alt f" { SwitchToMode "entersearch"; SearchInput 0; }
+        bind "Alt s" { SwitchToMode "scroll"; }
+        bind "Alt r" { SwitchToMode "Resize"; }
+        bind "Alt q" { Detach; }
+        bind "Alt 1" { GoToTab 1; }
+        bind "Alt 2" { GoToTab 2; }
+        bind "Alt 3" { GoToTab 3; }
+        bind "Alt 4" { GoToTab 4; }
+        bind "Alt 5" { GoToTab 5; }
+        bind "Alt 6" { GoToTab 6; }
+        bind "Alt 7" { GoToTab 7; }
+        bind "Alt 8" { GoToTab 8; }
+        bind "Alt 9" { GoToTab 9; }
+    }
+
+    resize {
+        bind "h" "Left" { Resize "Left"; }
+        bind "j" "Down" { Resize "Down"; }
+        bind "k" "Up" { Resize "Up"; }
+        bind "l" "Right" { Resize "Right"; }
+    }
+
+    scroll {
+        bind "e" { EditScrollback; SwitchToMode "normal"; }
+        bind "g" { ScrollToTop; }
+        bind "G" { ScrollToBottom; }
+        bind "j" "Down" { ScrollDown; }
+        bind "k" "Up" { ScrollUp; }
+        bind "Ctrl f" "PageDown" { PageScrollDown; }
+        bind "Ctrl b" "PageUp" { PageScrollUp; }
+        bind "Ctrl d" { HalfPageScrollDown; }
+        bind "Ctrl u" { HalfPageScrollUp; }
+    }
+
+    search {
+        bind "n" { Search "Down"; }
+        bind "N" { Search "Up"; }
+        bind "c" { SearchToggleOption "CaseSensitivity"; }
+        bind "w" { SearchToggleOption "Wrap"; }
+        bind "o" { SearchToggleOption "WholeWord"; }
+    }
+
+    entersearch {
+        bind "Enter" { SwitchToMode "search"; }
+    }
+}
+
+themes {
+    catppuccin-latte{
+        bg "#acb0be";
+        fg "#acb0be";
+        red "#d20f39";
+        green "#40a02b";
+        blue "#1e66f5";
+        yellow "#df8e1d";
+        magenta "#ea76cb";
+        orange "#fe640b";
+        cyan "#04a5e5";
+        black "#4c4f69";
+        white "#dce0e8";
+    }
+
+    catppuccin-frappe{
+        bg "#626880";
+        fg "#c6d0f5";
+        red "#e78284";
+        green "#a6d189";
+        blue "#8caaee";
+        yellow "#e5c890";
+        magenta "#f4b8e4";
+        orange "#ef9f76";
+        cyan "#99d1db";
+        black "#292c3c";
+        white "#c6d0f5";
+    }
+
+    catppuccin-macchiato{
+        bg "#5b6078";
+        fg "#cad3f5";
+        red "#ed8796";
+        green "#a6da95";
+        blue "#8aadf4";
+        yellow "#eed49f";
+        magenta "#f5bde6";
+        orange "#f5a97f";
+        cyan "#91d7e3";
+        black "#24273a";
+        white "#cad3f5";
+    }
+
+    catppuccin-mocha{
+        bg "#585b70";
+        fg "#cdd6f4";
+        red "#f38ba8";
+        green "#a6e3a1";
+        blue "#89b4fa";
+        yellow "#f9e2af";
+        magenta "#f5c2e7";
+        orange "#fab387";
+        cyan "#89dceb";
+        black "#181825";
+        white "#cdd6f4";
+    }
+}
+
+theme "catppuccin-macchiato"
+pane_frames false
+mouse_mode true
+scroll_buffer_size 100000
+default_layout "default"

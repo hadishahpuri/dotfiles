@@ -1,3 +1,5 @@
+gui:
+  windowSize: 'half'
 customCommands:
   - key: 'c'
     context: 'files'

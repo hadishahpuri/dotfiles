@@ -118,6 +118,7 @@ return {
   show_new_tab_button_in_tab_bar = false,
   warn_about_missing_glyphs = false,
   bidi_enabled = true,
+  enable_kitty_keyboard = true
   window_padding = {
     left = 0,
     right = 0,
@@ -133,7 +134,8 @@ return {
   keys = {
     { key = "j",   mods = "META", action = act.SendKey { key = 'DownArrow' } },
     { key = "k",   mods = "META", action = act.SendKey { key = 'UpArrow' } },
-    { key = "F11", mods = "",     action = "ToggleFullScreen" },
+    { key = "F11", mods = "", action = "ToggleFullScreen" },
+    { key = '0', mods = 'CTRL', action = act.PaneSelect },
   },
 
   set_environment_variables = {
