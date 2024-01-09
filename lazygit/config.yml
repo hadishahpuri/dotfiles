@@ -43,3 +43,39 @@ customCommands:
             value: '--no-verify'
     command: "git commit -m '{{.Form.CommitType}} [{{.Form.CommitId}}] {{.Form.CommitMessage}}' {{.Form.PreCommitHook}}"
     loadingText: 'Commiting...'
+  - key: 'n'
+    context: 'localBranches'
+    subprocess: true
+    prompts:
+      - type: 'menu'
+        title: 'Choose your branch type:'
+        key: 'BranchType'
+        options:
+          - name: '✨ FEATURE'
+            value: 'feature'
+          - name: '🐛 BUG'
+            value: 'bugFix'
+          - name: '🚑️ HOTFIX'
+            value: 'hotFix'
+      - type: 'input'
+        title: 'Enter your task ID'
+        key: 'TaskId'
+        initialValue: ''
+      - type: 'input'
+        title: 'Enter your branch name'
+        key: 'BranchName'
+        initialValue: ''
+    command: "git checkout -b {{.Form.BranchType}}/T{{.Form.TaskId}}-{{.Form.BranchName}}"
+    loadingText: 'Creating new branch...'
+  - key: '<c-p>'
+    context: 'global'
+    subprocess: true
+    prompts:
+      - type: 'input'
+        title: 'Choose your target branch'
+        key: 'TargetBranch'
+        suggestions:
+          preset: 'branches'
+        initialValue: 'develop'
+    command: "git remote get-url origin | grep gitlab && git push -u origin HEAD -o merge_request.create -o merge_request.target={{.Form.TargetBranch}} -o merge_request.title='{{.SelectedLocalBranch.Name}}' || git push -u origin HEAD"
+    loadingText: 'Creating merge request...'
