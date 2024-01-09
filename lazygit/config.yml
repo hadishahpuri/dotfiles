@@ -67,3 +67,22 @@ customCommands:
         initialValue: ''
     command: "git checkout -b {{.Form.BranchType}}/T{{.Form.TaskId}}-{{.Form.BranchName}}"
     loadingText: 'Creating new branch...'
+  - key: '<c-p>'
+    context: 'global'
+    subprocess: true
+    prompts:
+      - type: 'input'
+        title: 'Choose your target branch'
+        key: 'TargetBranch'
+        suggestions:
+          preset: 'branches'
+      - type: 'input'
+        title: 'Enter your task ID'
+        key: 'TaskId'
+        initialValue: ''
+      - type: 'input'
+        title: 'Enter your branch name'
+        key: 'BranchName'
+        initialValue: ''
+    command: "git push -o merge_request.create merge_request.target={{.Form.TargetBranch}} merge_request.title=$(git rev-parse --abbrev-ref HEAD)"
+    loadingText: 'Creating merge request...'
