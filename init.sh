@@ -106,6 +106,14 @@ rm -rf ~/.config/zellij
 ln -s ${PWD}/zellij ~/.config/zellij
 
 # Helix
+# LSP
+sudo npm i -g vscode-langservers-extracted \
+    @tailwindcss/language-server \
+    typescript \
+    typescript-language-server \
+    dockerfile-language-server-nodejs \
+    intelephense
+
 rm -rf ~/.config/helix 2>&1 /dev/null
 ln -s ${PWD}/helix ~/.config/helix
 

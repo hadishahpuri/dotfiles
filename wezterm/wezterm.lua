@@ -118,7 +118,7 @@ return {
   show_new_tab_button_in_tab_bar = false,
   warn_about_missing_glyphs = false,
   bidi_enabled = true,
-  enable_kitty_keyboard = true
+  enable_kitty_keyboard = true,
   window_padding = {
     left = 0,
     right = 0,
