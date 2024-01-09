@@ -35,6 +35,7 @@ right = ["selections", "primary-selection-length", "position", "position-percent
 [keys.normal]
 space.w= ":w"
 space.q = ":q"
+space.c = ":buffer-close"
 
 [keys.normal."]"]
 b = "goto_next_buffer"

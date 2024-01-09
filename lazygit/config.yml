@@ -43,3 +43,27 @@ customCommands:
             value: '--no-verify'
     command: "git commit -m '{{.Form.CommitType}} [{{.Form.CommitId}}] {{.Form.CommitMessage}}' {{.Form.PreCommitHook}}"
     loadingText: 'Commiting...'
+  - key: 'n'
+    context: 'localBranches'
+    subprocess: true
+    prompts:
+      - type: 'menu'
+        title: 'Choose your branch type:'
+        key: 'BranchType'
+        options:
+          - name: '✨ FEATURE'
+            value: 'feature'
+          - name: '🐛 BUG'
+            value: 'bugFix'
+          - name: '🚑️ HOTFIX'
+            value: 'hotFix'
+      - type: 'input'
+        title: 'Enter your task ID'
+        key: 'TaskId'
+        initialValue: ''
+      - type: 'input'
+        title: 'Enter your branch name'
+        key: 'BranchName'
+        initialValue: ''
+    command: "git checkout -b {{.Form.BranchType}}/T{{.Form.TaskId}}-{{.Form.BranchName}}"
+    loadingText: 'Creating new branch...'
