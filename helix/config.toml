@@ -4,9 +4,15 @@ theme = "catppuccin_macchiato"
 line-number = "relative"
 mouse = false
 auto-completion = true
+completion-replace = true
 auto-format = true
 bufferline = "always"
 idle-timeout = 20
+completion-trigger-len = 1
+cursorline = true
+rulers = []
+color-modes = true
+true-color = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -21,7 +27,7 @@ enable = true
 
 [editor.indent-guides]
 render = true
-character = "▏"
+character = "┊"
 
 [editor.lsp]
 display-messages = true
@@ -32,10 +38,29 @@ left = ["mode", "spinner", "file-name", "file-type", "total-line-numbers", "file
 center = []
 right = ["selections", "primary-selection-length", "position", "position-percentage", "spacer", "diagnostics", "workspace-diagnostics", "version-control"]
 
-[keys.normal]
-space.w= ":w"
-space.q = ":q"
-space.c = ":buffer-close"
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+newline = "none"
+
+[editor.whitespace.characters]
+space = " "
+nbsp = "⍽"
+tab = "→"
+newline = "⏎"
+tabpad = "·"
+
+[keys.normal."space"]
+w= ":w"
+q = ":q"
+c = ":buffer-close"
+"/" = ["search_selection", "global_search"]
+o = "file_picker_in_current_buffer_directory"
+g = ":sh ~/dotfiles/scripts/helix.sh git $(~/dotfiles/scripts/helix.sh getfileinfo)"
+e = ":sh ~/dotfiles/scripts/helix.sh explorer $(~/dotfiles/scripts/helix.sh getfileinfo)"
+B = ":sh ~/dotfiles/scripts/helix.sh blame $(~/dotfiles/scripts/helix.sh getfileinfo)"
+r = ":pipe ~/dotfiles/scripts/helix.sh getfileinfo"
+x = ":sh ~/dotfiles/scripts/helix.sh copy $(~/dotfiles/scripts/helix.sh getfileinfo | awk \"{ print \\$1 }\")"
 
 [keys.normal."]"]
 b = "goto_next_buffer"

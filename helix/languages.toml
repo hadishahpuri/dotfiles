@@ -18,7 +18,7 @@ language-servers = [ "vscode-html-language-server", "tailwindcss-ls", "scls" ]
 
 [[language]]
 name = "php"
-language-servers = [ "intelephense", "scls", "tailwindcss-ls" ]
+language-servers = [ "intelephense", "tailwindcss-ls", "scls" ]
 
 [[language]]
 name = "css"
