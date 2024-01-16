@@ -63,6 +63,8 @@ x = ":sh ~/dotfiles/scripts/helix.sh copy $(~/dotfiles/scripts/helix.sh getfilei
 
 [keys.normal."]"]
 b = "goto_next_buffer"
+e = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 
 [keys.normal."["]
 b = "goto_previous_buffer"
+e = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
