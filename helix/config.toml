@@ -39,7 +39,7 @@ right = ["selections", "primary-selection-length", "position", "position-percent
 
 [editor.whitespace.render]
 space = "none"
-tab = "all"
+tab = "none"
 newline = "none"
 
 [editor.whitespace.characters]
