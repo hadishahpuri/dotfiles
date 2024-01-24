@@ -31,7 +31,7 @@ auto-format = true
 [[language]]
 name = "php"
 language-servers = [ "intelephense", "tailwindcss-ls", "scls" ]
-formatter = { command = 'npx', args = ["prettier", "--plugin", "/usr/lib/node_modules/@prettier/plugin-php/standalone.js"] }
+formatter = { command = 'npx', args = ["prettier", "--parser", "php"] }
 auto-format = true
 
 [[language]]
@@ -73,3 +73,7 @@ auto-format = true
 [[language]]
 name = "dockerfile"
 language-servers = [ "docker-langserver", "scls" ]
+
+[[language]]
+name = "python"
+language-servers = [ "pylsp", "scls" ]
