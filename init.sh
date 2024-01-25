@@ -52,6 +52,10 @@ sudo pacman -S \
     fd \
     zoxide
 
+# Yazi config
+rm -rf ~/.config/yazi/ 2>&1 /dev/null
+ln -s ${PWD}/.config/yazi/ ~/.config/yazi
+
 # WM
 sudo pacman -S \
     cliphist \
@@ -112,7 +116,9 @@ sudo npm i -g vscode-langservers-extracted \
     typescript \
     typescript-language-server \
     dockerfile-language-server-nodejs \
-    intelephense
+    intelephense \
+    prettier \
+    @prettier/plugin-php
 
 rm -rf ~/.config/helix 2>&1 /dev/null
 ln -s ${PWD}/helix ~/.config/helix
