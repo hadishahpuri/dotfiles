@@ -120,6 +120,10 @@ sudo npm i -g vscode-langservers-extracted \
     prettier \
     @prettier/plugin-php
 
+git clone https://github.com/estin/simple-completion-language-server.git
+cd simple-completion-language-server
+cargo install --path .
+
 rm -rf ~/.config/helix 2>&1 /dev/null
 ln -s ${PWD}/helix ~/.config/helix
 
@@ -156,6 +160,7 @@ rm mycron
 
 # Add git config for message templates
 sudo pacman -Sy lazygit
+ln -s ${PWD}/lazygit/ ~/.config/lazygit/
 # ln -s ${PWD}/.git-templates ~/.git-templates
 # git config --global init.templatedir '~/.git-templates'
 # git config --global commit.template '~/.git-templates/.gitmessage.txt'
