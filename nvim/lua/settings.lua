@@ -26,9 +26,9 @@ vim.opt.ruler = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
--- Show indentation
-vim.opt.list = true
-vim.o.listchars = 'multispace:┊   '
+-- -- Show indentation
+-- vim.opt.list = true
+-- vim.o.listchars = 'multispace:┊   '
 
 -- Maintain undo history between sessions
 vim.opt.undolevels = 500
@@ -41,8 +41,8 @@ vim.o.timeoutlen = 1000
 vim.o.ttimeoutlen = 100
 vim.opt.linebreak = true
 vim.opt.cindent = false
-vim.opt.foldmethod = 'indent'
-vim.opt.foldlevel = 2
+-- vim.opt.foldmethod = 'indent'
+-- vim.opt.foldlevel = 2
 vim.opt.wrap = true
 vim.opt.breakindent = true
 vim.opt.signcolumn = 'yes'
@@ -53,3 +53,5 @@ vim.opt.smartcase = true
 
 -- Add indent for p/li in html
 vim.g.html_indent_tags = 'li│p'
+--clipboard
+vim.api.nvim_set_option("clipboard", "unnamedplus")

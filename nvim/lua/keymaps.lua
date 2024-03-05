@@ -28,7 +28,7 @@ vim.keymap.set('n', 'k', 'gk')
 
 -- Title as filename
 vim.api.nvim_create_autocmd('BufEnter',
-  { pattern = '*', command = 'let &titlestring = expand("%:t") . " (" . expand("%:~:h") . ") - Vim"' })
+    { pattern = '*', command = 'let &titlestring = expand("%:t") . " (" . expand("%:~:h") . ") - Vim"' })
 vim.opt.title = true
 
 -- Search in VisualMode
@@ -50,4 +50,8 @@ vim.keymap.set('n', '<C-b>', '<C-b>zz')
 
 -- Lazygit
 vim.keymap.set('n', '<Leader>g', ':silent exec "!zellij action new-pane --name Lazygit -c -f -- lazygit"<CR>',
-  { silent = true })
+    { silent = true })
+
+-- Lazygit
+vim.keymap.set('n', '<Leader>e', ':silent exec "!zellij action new-pane --name Yazi -c -f -- yazi"<CR>',
+    { silent = true })
