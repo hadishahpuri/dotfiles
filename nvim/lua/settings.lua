@@ -41,8 +41,8 @@ vim.o.timeoutlen = 1000
 vim.o.ttimeoutlen = 100
 vim.opt.linebreak = true
 vim.opt.cindent = false
--- vim.opt.foldmethod = 'indent'
--- vim.opt.foldlevel = 2
+vim.opt.foldmethod = 'indent'
+vim.opt.foldlevel = 2
 vim.opt.wrap = true
 vim.opt.breakindent = true
 vim.opt.signcolumn = 'yes'
@@ -55,3 +55,5 @@ vim.opt.smartcase = true
 vim.g.html_indent_tags = 'li│p'
 --clipboard
 vim.api.nvim_set_option("clipboard", "unnamedplus")
+-- enable 24-bit colour
+vim.opt.termguicolors = true

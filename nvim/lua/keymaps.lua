@@ -51,7 +51,3 @@ vim.keymap.set('n', '<C-b>', '<C-b>zz')
 -- Lazygit
 vim.keymap.set('n', '<Leader>g', ':silent exec "!zellij action new-pane --name Lazygit -c -f -- lazygit"<CR>',
     { silent = true })
-
--- Lazygit
-vim.keymap.set('n', '<Leader>e', ':silent exec "!zellij action new-pane --name Yazi -c -f -- yazi"<CR>',
-    { silent = true })
