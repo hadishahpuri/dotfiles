@@ -144,5 +144,6 @@ return {
 
   quick_select_patterns = {
     '[^\\s]*[0-9]\\.[^\\s]*'
-  }
+  },
+    enable_wayland = false
 }
