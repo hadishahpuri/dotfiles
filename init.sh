@@ -59,7 +59,7 @@ ln -s ${PWD}/.config/yazi/ ~/.config/yazi
 # WM
 sudo pacman -S \
     cliphist \
-    rofi \
+    rofi-lbonn-wayland \
     highlight \
     swappy \
     grim \
