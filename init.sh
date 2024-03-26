@@ -68,6 +68,7 @@ sudo pacman -S \
     swayidle \
     xdg-desktop-portal-wlr \
     hyprland \
+    hyprlock \
     btop
 
 yay -Sy \
@@ -84,11 +85,8 @@ yay -Sy \
     zellij
 
 # Hyprland
-rm -rf ~/.config/hypr/hyprland.conf 2>&1 /dev/null
-# rm -rf ~/.config/hypr/hyprpaper.conf 2>&1 /dev/null
-mkdir -p ~/.config/hypr
-ln -s ${PWD}/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
-# ln -s ${PWD}/hypr/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
+rm -rf ~/.config/hypr/ 2>&1 /dev/null
+ln -s ${PWD}/hypr ~/.config/hypr
 
 # Bar
 sudo pacman -S \
