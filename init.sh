@@ -156,6 +156,9 @@ echo "" >> mycron
 crontab mycron
 rm mycron
 
+# Add default wallpapers
+ln -s ${PWD}/wallpapers/* ~/Pictures/
+
 # Add git config for message templates
 sudo pacman -Sy lazygit
 ln -s ${PWD}/lazygit/ ~/.config/lazygit/
