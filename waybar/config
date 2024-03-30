@@ -1,8 +1,77 @@
 {
-    "modules-left": ["hyprland/workspaces", "custom/media"],
-    "modules-center": ["clock", "idle_inhibitor", "custom/shamsi"],
-    "modules-right": ["tray", "custom/scratchpad-indicator", "hyprland/language", "custom/updates", "custom/notification", "group/group-audio", "custom/screenshot", "custom/power", "battery"],
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 50, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 5, // Gaps between modules (4px)
+    // Choose the order of the modules
+    // "margin-left":25,
+    // "margin-right":25,
+    "margin-bottom":-11,
+    //"margin-top":5,
+    "modules-left": ["wlr/workspaces"],
+    "modules-right": ["temperature","network","battery","custom/ss","custom/cycle_wall","custom/expand","cpu","clock"],
+    "modules-center": ["custom/dynamic_pill"],
+    // Modules configuration
 
+
+    // custom modules ////////////////
+    "custom/dynamic_pill": {
+        "return-type": "json",
+        "exec": "~/.config/hypr/scripts/tools/start_dyn",
+        "escape":true
+    },
+    "custom/ss":{
+        "format":"{}",
+        "exec":"~/.config/hypr/scripts/tools/expand ss-icon",
+        "on-click": "~/.config/hypr/scripts/screenshot_full"
+    },
+    "custom/cycle_wall":{
+        "format":"{}",
+        "exec": "~/.config/hypr/scripts/tools/expand wall",
+        // "interval": 1,
+        "on-click": "~/.config/hypr/scripts/tools/expand cycle"
+    },
+    "custom/expand":{
+        "on-click":"~/.config/hypr/scripts/expand_toolbar",
+        "format":"{}",
+        "exec":"~/.config/hypr/scripts/tools/expand arrow-icon"
+    },
+    // "custom/waybar-mpris": {
+    //     "return-type": "json",
+    //     "exec": "echo '   '",
+    //     "on-click": "waybar-mpris --send toggle",
+    //     // This option will switch between players on right click.
+    //         "on-click-right": "waybar-mpris --send player-next",
+    //     // The options below will switch the selected player on scroll
+    //         // "on-scroll-up": "waybar-mpris --send player-next",
+    //         // "on-scroll-down": "waybar-mpris --send player-prev",
+    //     // The options below will go to next/previous track on scroll
+    //         // "on-scroll-up": "waybar-mpris --send next",
+    //         // "on-scroll-down": "waybar-mpris --send prev",
+    //     "escape": true
+    // },
+    //////////////////////////////////
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "wlr/workspaces": {
+        "format": "{icon}",
+        "format-active": " {icon} ",
+        "on-click": "activate"
+        // "format-icons":{
+        //     "10":"10"
+        // }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
         "format-disconnected": "Disconnected ",
@@ -29,157 +98,95 @@
         "tooltip-format": "MPD (connected)",
         "tooltip-format-disconnected": "MPD (disconnected)"
     },
-    "hyprland/mode": {
-        "max-length": 50,
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "network": {
-        "tooltip-format": "{essid} ({signalStrength}%) ",
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname} ",
-        "format-disconnected": "", 
-        "max-length": 50,
-        "on-click": "networkmanager_dmenu"
-    },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
             "activated": "",
             "deactivated": ""
-        },
-		"on-click": "toggleRemote"
+        }
     },
     "tray": {
-        "icon-size": 15,
+        // "icon-size": 21,
         "spacing": 10
     },
     "clock": {
+        // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}",
-        "format": "{:%H:%M:%OS}",
-        "interval": 1,
+        "interval": 60,
+        "format": "{:%I:%M}",
+        "max-length": 25
     },
-  "group/group-audio": {
-      "orientation": "horizontal",
-      "drawer": {
-          "transition-duration": 500,
-          "children-class": "",
-          "transition-left-to-right": false,
-      },
-      "modules": [
-          "pulseaudio",
-          "pulseaudio/slider",
-      ]
-  },
-  "pulseaudio": {
-      "scroll-step": 2,
-      "format": "{volume}% {icon}",
-      "format-muted": "󰝟",
-      "format-source": "",
-      "format-source-muted": "",
-      "format-icons": {
-          "speaker": "󰕾",
-          "hdmi": "󰓃",
-          "headphone": "󰋋",
-          "hands-free": "?",
-          "headset": "󰋎",
-          "phone": "",
-          "portable": "",
-          "car": "",
-          "default": "󰕾"
-      },
-      "on-click-right": "pavucontrol",
-      "on-click": "swayosd-client --output-volume=mute-toggle",
-      "on-scroll-up": "swayosd-client --output-volume=raise",
-      "on-scroll-down": "swayosd-client --output-volume=lower"
-  },
-  "pulseaudio/slider": {
-      "orientation": "horizontal"
-  },
-	"custom/power": {
-		"format": " ",
-		"on-click": "~/.config/rofi/applets/bin/powermenu.sh"
-	},
-    "custom/scratchpad-indicator": {
-        "format-text": "{}",
-        "return-type": "json",
-        "interval": 3,
-        "exec": "~/.local/bin/scratchpad-indicator 2> /dev/null",
-        "exec-if": "exit 0",
-        "on-click": "hyprctl 'scratchpad show'",
-        "on-click-right": "hyprctl 'move scratchpad'"
+    "cpu": {
+        "interval":1,
+        "format": "{icon0} {icon1} {icon2} {icon3}",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
     },
-    "custom/notification": {
-        "tooltip": true,
-        "format": "{icon}",
-        "format-icons": {
-            "notification": "  <span foreground='red'><sup></sup></span> ",
-            "none": "  ",
-            "dnd-notification": " <span foreground='red'><sup></sup></span> ",
-            "dnd-none": "  "
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C",
+        "format": ""
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            "warning": 50,
+            "critical": 20
         },
-        "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
-        "escape": true
+        "format": "{icon}",
+        "format-charging": "",
+        "format-plugged": "",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "",
+        "format-ethernet": "",
+        "tooltip-format": "via {gwaddr} {ifname}",
+        "format-linked": "",
+        "format-disconnected": "wifi",
+        "format-alt": "   "
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
     },
     "custom/media": {
-        "format": "{}",
+        "format": "{icon} {}",
         "return-type": "json",
         "max-length": 40,
-		"on-click": "playerctl play-pause",
-		"on-scroll-up": "playerctl position 5+",
-		"on-scroll-down": "playerctl position 5-",
         "format-icons": {
             "spotify": "",
             "default": "🎜"
         },
-        // apt install gir1.2-playerctl-2.0
-        "exec": "$HOME/.config/waybar/resources/./player.sh 2> /dev/null"
-    },
-    "custom/screenshot": {
-        "format": " ",
-        "tooltip": false,
-        "min-length": 3,
-        "on-click": "sleep 0.1 && grim -g \"$(slurp)\" - | swappy -f -",
-        "on-click-middle": "grim -g \"$(hyprctl -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | \"\\(.x),\\(.y) \\(.width)x\\(.height)\"' | slurp)\" - | swappy -f -"
-    },
-    "custom/shamsi": {
-        "format": "{}",
         "escape": true,
-        "tooltip": true,
-        "return-type": "json",
-        "min-length": 14,
-        "exec": "$HOME/.config/waybar/resources/shamsi.sh",
-        "interval": 60
-    },
-    "custom/updates": {
-        "format": "{} 󰚰",
-        "exec": "checkupdates | wc -l",
-        "interval": 600
-    },
-    "layer": "top",
-    "battery": {
-        "states": {
-              "warning": 30,
-              "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": "󰂄 {capacity}%",
-        "format-plugged": "󱈏{capacity}%",
-        "format-alt": "{time} {icon}",
-        "format-full": " {capacity}%",
-        "format-icons": ["󱟢", "󰂄", "󱈏"]
-	},
-    "hyprland/workspaces": {
-        "format": "{icon}",
-        "format-icons": {
-            "1": "",
-            "2": "󰊯",
-            "3": "󱂛",
-            "4": "",
-        }
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     }
 }
