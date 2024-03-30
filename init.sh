@@ -74,6 +74,7 @@ sudo pacman -S \
 yay -Sy \
     swaylock-effects-git \
     google-chrome \
+    brave \
     cronie \
     swaync \
     swww \
