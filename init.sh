@@ -68,7 +68,7 @@ sudo pacman -S \
     swayidle \
     xdg-desktop-portal-wlr \
     hyprland \
-    hyprlock \
+    hyprlock-git \
     btop
 
 yay -Sy \
