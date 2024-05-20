@@ -54,3 +54,6 @@ vim.keymap.set('n', '<Leader>g', ':silent exec "!zellij action new-pane --name L
 
 vim.keymap.set('v', '<Tab>', '>gv gv')
 vim.keymap.set('v', '<S-Tab>', '<gv gv')
+
+-- Save without formating
+vim.keymap.set('v', '<Leader><S-w>', ':noa w<CR>')

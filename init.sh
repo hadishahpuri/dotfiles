@@ -83,7 +83,9 @@ yay -Sy \
     sassc \
     swayosd \
     helix \
-    zellij
+    zellij \
+    pass \
+    wtype
 
 # Hyprland
 rm -rf ~/.config/hypr/ 2>&1 /dev/null
