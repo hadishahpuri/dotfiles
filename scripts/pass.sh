@@ -30,14 +30,13 @@ else
     # because if you using `pass -i` the first line will be replaced with a new password
 
     passw=$(pass show $password | head -n1 )
-    uname=$(pass show $password | tail -n1 )
-    echo $pass
-    echo $uname
+    uname=${password##*/}
+
     # xdotool types the username on the active spot (cli or inputfield from a browser)
     wtype "$uname"
     # type a TAB (for moving forward in browser input fields)
-    wtype Tab
+    wtype -k Tab
     # type the password in the active input
     wtype "$passw"
-    wtype Tab
+    wtype -k Tab
 fi
