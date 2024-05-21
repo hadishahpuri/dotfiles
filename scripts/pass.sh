@@ -16,7 +16,7 @@ password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
 # shows a list of all password files and saved the selected one in a variable
-password=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu "$@" -theme ~/dotfiles/rofi/powermenu/type-1/style-3.rasi)
+password=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu -config ~/dotfiles/rofi/themes/rounded-blue-dark.rasi)
 [[ -n $password ]] || exit
 
 

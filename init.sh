@@ -85,7 +85,8 @@ yay -Sy \
     helix \
     zellij \
     pass \
-    wtype
+    wtype \
+    pinentry-rofi
 
 # Hyprland
 rm -rf ~/.config/hypr/ 2>&1 /dev/null
