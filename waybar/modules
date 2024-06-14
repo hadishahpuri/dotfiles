@@ -863,4 +863,20 @@
 	"interval": 86400, // once every day
 	"tooltip": true,
 },
+"custom/shamsi": {
+      "format": "{}",
+      "escape": true,
+      "tooltip": true,
+      "return-type": "json",
+      "min-length": 14,
+      "exec": "$HOME/.config/waybar/resources/shamsi.sh",
+      "interval": 60
+  },
+    "custom/screenshot": {
+        "format": " ",
+        "tooltip": false,
+        "min-length": 3,
+        "on-click": "sleep 0.1 && grim -g \"$(slurp)\" - | swappy -f -",
+        "on-click-middle": "grim -g \"$(hyprctl -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | \"\\(.x),\\(.y) \\(.width)x\\(.height)\"' | slurp)\" - | swappy -f -"
+    },
 }
