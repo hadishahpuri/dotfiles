@@ -86,7 +86,8 @@ yay -Sy \
     zellij \
     pass \
     wtype \
-    pinentry-rofi
+    pinentry-rofi \
+    pamixer
 
 # Hyprland
 rm -rf ~/.config/hypr/ 2>&1 /dev/null
