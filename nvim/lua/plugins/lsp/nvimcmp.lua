@@ -44,6 +44,7 @@ return {
                 { 'hrsh7th/cmp-nvim-lua',         branch = 'main' },
                 { 'jcha0713/cmp-tw2css',          branch = 'main' },
                 { 'hrsh7th/cmp-cmdline',          branch = 'main' },
+                { 'SergioRibera/cmp-dotenv',      branch = 'main' },
             },
         }
     },
@@ -90,6 +91,9 @@ return {
                         end
                     }
                 },
+                {
+                    name = "dotenv",
+                }
             }, {
                 { name = 'calc' },
             }, {
@@ -130,7 +134,7 @@ return {
                 end, { "i", "s" }),
                 ['<S-TAB>'] = cmp.mapping(function(fallback)
                     if cmp.visible() then
-                        cmp.select_prev_item()
+                        cmp.select_previous_item()
                     else
                         fallback()
                     end
