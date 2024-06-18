@@ -133,7 +133,7 @@ return {
             function()
                 return '▊'
             end,
-            color = { fg = colors.blue }, -- Sets highlighting of component
+            color = { fg = colors.blue },      -- Sets highlighting of component
             padding = { left = 0, right = 1 }, -- We don't need space before this
         }
 
@@ -218,7 +218,7 @@ return {
 
         ins_left {
             'diagnostics',
-            sources = {'nvim_diagnostic', 'coc'},
+            sources = { 'nvim_diagnostic', 'coc' },
             always_visible = false,
             update_in_insert = false,
             symbols = { error = ' ', warn = ' ', info = ' ' },
@@ -230,16 +230,16 @@ return {
         }
 
         -- Add components to right sections
-        ins_right {
-            require("noice").api.statusline.mode.get,
-            cond = require("noice").api.statusline.mode.has,
-            color = { fg = "#ff9e64" },
-        }
+        --        ins_right {
+        --            require("noice").api.statusline.mode.get,
+        --            cond = require("noice").api.statusline.mode.has,
+        --            color = { fg = "#ff9e64" },
+        --        }
 
-        ins_right { 'location', color = { fg = colors.orange, gui = 'bold' }  }
+        ins_right { 'location', color = { fg = colors.orange, gui = 'bold' } }
 
         ins_right {
-            'o:encoding', -- option component same as &encoding in viml
+            'o:encoding',       -- option component same as &encoding in viml
             fmt = string.upper, -- I'm not sure why it's upper case either ;)
             cond = conditions.hide_in_width,
             color = { fg = colors.green, gui = 'bold' },
