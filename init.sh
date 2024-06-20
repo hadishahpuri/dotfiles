@@ -170,3 +170,7 @@ ln -s ${PWD}/lazygit/ ~/.config/lazygit/
 # ln -s ${PWD}/.git-templates ~/.git-templates
 # git config --global init.templatedir '~/.git-templates'
 # git config --global commit.template '~/.git-templates/.gitmessage.txt'
+
+# Swaync
+rm -rf ~/.config/swaync
+ln -s ${PWD}/swaync ~/.config/swaync
