@@ -3,6 +3,7 @@ return {
     lazy = false,
     priority = 1000,
     branch = 'main',
+    enabled = false,
     config = function()
         require("tokyonight").setup({
             -- your configuration comes here
