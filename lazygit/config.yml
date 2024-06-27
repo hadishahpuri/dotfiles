@@ -25,6 +25,8 @@ customCommands:
             value: '🚧'
           - name: '🔥 REMOVED'
             value: '🔥'
+          - name: '🎉 INITIAL'
+            value: '🎉'
       - type: 'input'
         title: 'Enter your commit ID'
         key: 'CommitId'
