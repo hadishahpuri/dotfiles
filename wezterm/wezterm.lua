@@ -2,11 +2,10 @@ local wezterm = require 'wezterm';
 local act = wezterm.action
 local topbarColor = '#24273a'
 local pallete = {
-    '#F14627',
-    '#7A7688',
-    '#24273a',
-    '#BD9699',
-    '#7C525D',
+    '#D8EFD3',
+    '#95D2B3',
+    '#55AD9B',
+    '#F1F8E8',
 }
 
 wezterm.on('update-status', function(window, pane)
@@ -32,7 +31,7 @@ function update_right(window, pane, is_medium_window, is_big_window)
 
     local fg_colors = {
         pallete[3],
-        pallete[5],
+        pallete[4],
     }
 
     -- Ssh Hostname
@@ -69,7 +68,7 @@ function update_left(window, pane, is_medium_window, is_big_window)
     }
 
     local fg_colors = {
-        pallete[5],
+        pallete[4],
     }
 
     -- Title
