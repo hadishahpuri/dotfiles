@@ -79,5 +79,5 @@ customCommands:
         suggestions:
           preset: 'branches'
         initialValue: 'develop'
-    command: "git remote get-url origin | grep gitlab && git push -u origin HEAD -o merge_request.create -o merge_request.target={{.Form.TargetBranch}} -o merge_request.title='{{.SelectedLocalBranch.Name}}' || git push -u origin HEAD"
+    command: "git remote get-url origin | grep gitlab && git push -u origin HEAD -o merge_request.create -o merge_request.target={{.Form.Target}} -o merge_request.title='{{.SelectedLocalBranch.Name}}' || git push -u origin HEAD"
     loadingText: 'Creating merge request...'
