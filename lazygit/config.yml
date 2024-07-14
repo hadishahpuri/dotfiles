@@ -75,7 +75,7 @@ customCommands:
     prompts:
       - type: 'input'
         title: 'Choose your target branch'
-        key: 'TargetBranch'
+        key: 'Target'
         suggestions:
           preset: 'branches'
         initialValue: 'develop'
