@@ -79,5 +79,5 @@ customCommands:
         suggestions:
           preset: 'branches'
         initialValue: 'develop'
-    command: "git remote get-url origin | grep gitlab && git push -u origin HEAD -o merge_request.create -o merge_request.target={{.Form.Target}} -o merge_request.title='{{.SelectedLocalBranch.Name}}' || git push -u origin HEAD"
+    command: "~/dotfiles/lazygit/merge_request.sh {{.Form.Target}} {{.SelectedLocalBranch.Name}}"
     loadingText: 'Creating merge request...'
