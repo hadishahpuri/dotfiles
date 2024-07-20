@@ -79,5 +79,5 @@ customCommands:
         suggestions:
           preset: 'branches'
         initialValue: 'develop'
-    command: "~/dotfiles/lazygit/merge_request.sh {{.Form.Target}} {{.SelectedLocalBranch.Name}}"
+    command: "~/dotfiles/lazygit/merge_request.sh {{.Form.Target}}"
     loadingText: 'Creating merge request...'
