@@ -121,7 +121,8 @@ sudo npm i -g vscode-langservers-extracted \
     dockerfile-language-server-nodejs \
     intelephense \
     prettier \
-    @prettier/plugin-php
+    @prettier/plugin-php \
+    blade-formatter
 
 git clone https://github.com/estin/simple-completion-language-server.git
 cd simple-completion-language-server
