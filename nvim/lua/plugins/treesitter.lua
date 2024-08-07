@@ -19,6 +19,12 @@ return {
             autotag = {
                 enable = true,
             },
+            indent = {
+                enable = true,
+            },
+            highlight = {
+                enable = true,
+            },
             textobjects = {
                 select = {
                     enable = true,
@@ -56,11 +62,9 @@ return {
                     enable = true,
                     swap_next = {
                         [']a'] = '@parameter.inner',
-                        [']f'] = '@function.outer'
                     },
                     swap_previous = {
                         ['[a'] = '@parameter.inner',
-                        ['[f'] = '@function.outer'
                     }
                 }
             }
@@ -80,7 +84,7 @@ return {
                     'if',
                 },
             },
-            zindex = 20, -- The Z-index of the context window
+            zindex = 20,     -- The Z-index of the context window
             mode = 'cursor', -- Line used to calculate context. Choices: 'cursor', 'topline'
         }
 
