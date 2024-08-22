@@ -1,7 +1,7 @@
 /* ---- 💫 https://github.com/JaKooLit 💫 ---- */
 /* Simple Style */
 
-@define-color background #1d2021;
+@define-color background rgba(12, 12, 12, 0.4);
 @define-color foreground #ebdbb2;
 @define-color dim #928374;
 @define-color yellow #fabd2f;
