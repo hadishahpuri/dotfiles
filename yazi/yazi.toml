@@ -3,7 +3,7 @@ sort_by = "natural"
 linemode = "size"
 show_hidden = true
 
-[opener]
-edit = [
-	{ exec = '[ -n "$HELIX" ] && ~/dotfiles/scripts/helix.sh edit $@ || $EDITOR $@', block = true,  for = "unix" },
-]
+# [opener]
+# edit = [
+# 	{ exec = '[ -n "$HELIX" ] && ~/dotfiles/scripts/helix.sh edit $@ || $EDITOR $@', block = true,  for = "unix" },
+# ]

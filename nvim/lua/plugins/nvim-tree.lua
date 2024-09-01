@@ -1,6 +1,7 @@
 return {
     'nvim-tree/nvim-tree.lua',
     lazy = false,
+    enabled = false,
     branch = 'master',
     keys = {
         { '<Leader>e', '<cmd>NvimTreeFindFileToggle<CR>' },
