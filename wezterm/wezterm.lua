@@ -101,7 +101,7 @@ end
 
 return {
     automatically_reload_config = true,
-    color_scheme = "catppuccin-latte",
+    color_scheme = "catppuccin-frappe",
     font = wezterm.font("maple mono"),
     colors = {
         tab_bar = {
@@ -109,6 +109,25 @@ return {
         },
     },
     font_size = 12,
+    font_rules = {
+        {
+            intensity = 'Bold',
+            italic = true,
+            font = wezterm.font {
+                family = 'maple mono',
+                weight = 'Bold',
+                style = 'Italic',
+            }
+        },
+        {
+            intensity = 'Normal',
+            italic = true,
+            font = wezterm.font {
+                family = 'maple mono',
+                style = 'Italic',
+            }
+        },
+    },
     line_height = 1.4,
     use_fancy_tab_bar = false,
     show_tabs_in_tab_bar = false,
