@@ -21,7 +21,7 @@
 	    "custom/weather"
     ],
     "modules-center": [
-	    "clock",
+	    "custom/clock",
 	    "custom/separator#line",
 	    "hyprland/workspaces#pacman",
 	    "custom/separator#dot-line",
@@ -37,7 +37,11 @@
 	    "mpris", 
 	    "group/audio",
 	    "custom/separator#line",
-    ]
+    ],
+    "custom/clock": {
+          "exec": "date +\"%H:%M:%S\"",
+          "interval": 1
+    }
 
 //    "mpd": {
 //        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
