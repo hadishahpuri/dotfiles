@@ -87,7 +87,8 @@ yay -Sy \
     pass \
     wtype \
     pinentry-rofi \
-    pamixer
+    pamixer \
+    difftastic
 
 # Hyprland
 rm -rf ~/.config/hypr/ 2>&1 /dev/null

@@ -81,3 +81,6 @@ customCommands:
         initialValue: 'develop'
     command: "~/dotfiles/lazygit/merge_request.sh {{.Form.Target}}"
     loadingText: 'Creating merge request...'
+git:
+  paging:
+    externalDiffCommand: difft --color=always --display=inline --syntax-highlight=on
