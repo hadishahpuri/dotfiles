@@ -88,7 +88,8 @@ yay -Sy \
     wtype \
     pinentry-rofi \
     pamixer \
-    difftastic
+    difftastic \
+    eww
 
 # Hyprland
 rm -rf ~/.config/hypr/ 2>&1 /dev/null
@@ -176,3 +177,7 @@ ln -s ${PWD}/lazygit/ ~/.config/lazygit/
 # Swaync
 rm -rf ~/.config/swaync
 ln -s ${PWD}/swaync ~/.config/swaync
+
+# EWW
+rm -rf ~/.config/eww 2>&1 /dev/null
+ln -s ${PWD}/eww ~/.config/eww
