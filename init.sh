@@ -89,7 +89,8 @@ yay -Sy \
     pinentry-rofi \
     pamixer \
     difftastic \
-    eww
+    eww \
+    networkmanager-dmenu
 
 # Hyprland
 rm -rf ~/.config/hypr/ 2>&1 /dev/null

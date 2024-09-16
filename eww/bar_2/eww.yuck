@@ -42,6 +42,10 @@
 (defvar IMAGE "images/profile.jpg")
 (defpoll USER :interval "10m" `whoami`)
 
+;; Icons
+(defvar SCREEN_SHOT "images/screen_shot.png")
+(defpoll ICON :interval "15m" `scripts/idle_icon.sh`)
+
 ;; ** Widgets *************************************************************************
 
 ;; search
@@ -157,10 +161,15 @@
 				    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 					    (box :style "background-image: url('${WIFIICON}');" :class "trayicon")
 					    (label :class "infotext" :halign "start" :text NETSTAT)))
-			    (button :onclick "sidedar/toggle_sidebar"
+                (button :onclick "scripts/screen_shot.sh"
 				    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-					    (box :style "background-image: url('${IMAGE}');" :class "face")
-					    (label :class "infotext" :halign "start" :text USER)))))
+					    (box :style "background-image: url('${SCREEN_SHOT}');" :class "trayicon")
+					    ))
+                (button :onclick "scripts/idle.sh"
+				    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+					    (box :style "background-image: url('${IDLE}');" :class "trayicon")
+					    ))
+            ))
     ))
 
 ;; ** Windows *************************************************************************
