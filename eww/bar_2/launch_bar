@@ -1,0 +1,19 @@
+#!/bin/bash
+
+EWW=`eww`
+CFG="$HOME/.config/eww/bar_2"
+
+## Run eww daemon if not running already
+if [[ ! `pidof eww` ]]; then
+	${EWW} daemon
+	sleep 1
+fi
+
+## Open widgets 
+run_eww() {
+	eww --config "$CFG" --force-wayland open-many \
+		   bar
+}
+
+## Launch or close widgets accordingly
+run_eww
