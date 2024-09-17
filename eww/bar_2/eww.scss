@@ -1,3 +1,32 @@
+/** Variables *******************************************/
+$background: #0d1117;
+$foreground: #b0b4bc;
+
+$background-alt: #232320;
+
+$black: #000;
+$white: #fff;
+
+$green: #98971a;
+$lightgreen: #b8bb26;
+$yellow: #d79921;
+$lightyellow: #fabd2d;
+$red: #cc241d;
+$lightred: #fb4934;
+$blue: #0db7ed;
+$lightblue: #83a598;
+$magenta: #b16286;
+$lightmagenta: #d3869b;
+$cyan: #689d6a;
+$lightcyan: #8ec07c;
+$gray: #928374;
+$lightgray: #a89984;
+
+$warning: $yellow;
+$error: $red;
+
+$urgent: $red;
+
 /** Global *******************************************/
 * {
   all: unset;
@@ -156,5 +185,188 @@
   border-right: 2px solid red;
   margin-right: 5px;
 }
+
+.bottombar {
+  background-color: $background;
+  color: $foreground;
+  padding: 5px;
+  font-size: 1em;
+  font-family: Hack Regular;
+}
+
+// Styles on classes (see eww.yuck for more information)
+
+.icon-module {
+  margin: 0 5px;
+
+  &>&__icon {
+    margin-right: 5px;
+    font-family: "Font Awesome 5 Free Solid";
+  }
+}
+
+.sidestuff slider {
+  all: unset;
+  color: #ffd5cd;
+}
+
+.metric scale trough highlight {
+  all: unset;
+  background-color: $green;
+  color: $black;
+  border-radius: 10px;
+}
+
+.metric scale.warning trough highlight {
+  all: unset;
+  background-color: $yellow;
+  color: $black;
+  border-radius: 10px;
+}
+
+.metric scale.error trough highlight {
+  all: unset;
+  background-color: $error;
+  color: $black;
+  border-radius: 10px;
+}
+
+.metric scale.volume trough highlight {
+  all: unset;
+  background-color: $lightmagenta;
+  color: $black;
+  border-radius: 10px;
+}
+
+.metric scale trough {
+  all: unset;
+  background-color: $background-alt;
+  border-radius: 50px;
+  min-height: 5px;
+  min-width: 100px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.label-ram {
+  font-size: large;
+}
+
+.workspaces {
+  background-color: $background-alt;
+  border-radius: 15px;
+  margin-left: 5px;
+  margin-top: 5px;
+  padding-left: 10px;
+  padding-right: 5px;
+
+  font-family: "Hack NF Regular";
+  font-size: 28px;
+  margin-right: 20px;
+
+  button {
+    color: #a89984;
+    margin: 0px 3px;
+  }
+
+  button.focused {
+    color: $green;
+  }
+
+  button.urgent {
+    color: $urgent;
+  }
+}
+
+.spotify {
+  font-size: 1em;
+  // border-radius: 20px;
+  background-color: $green;
+  color: $background;
+}
+
+.spotify-text {
+  font-size: 1em;
+  background-color: $green;
+  color: $green;
+}
+
+.notifications {
+  font-size: 1em;
+  // border-radius: 20px;
+  background-color: red;
+  color: $background;
+}
+
+.notifications-text {
+  font-size: 1em;
+  background-color: red;
+  color: $green;
+}
+
+.docker {
+  font-family: "Font Awesome 5 Brands";
+  // border-radius: 20px;
+  font-size: 1em;
+  background-color: $blue;
+  color: $background;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.github {
+  font-family: "Font Awesome 5 Brands";
+  font-size: 1em;
+  background-color: $gray;
+  color: $background;
+}
+
+.github-text {
+  font-family: "Font Awesome 5 Brands";
+  font-size: 1em;
+  background-color: $lightgray;
+  color: $black;
+  padding-top: 0.7em;
+}
+
+.volume {
+  font-family: "Font Awesome 5 Brands";
+  font-size: 1.3em;
+  color: $foreground;
+}
+
+.uplink {
+  color: $lightmagenta;
+}
+
+.veryuplink {
+  color: $red;
+}
+
+.noactive {
+  color: $white;
+}
+
+.downlink {
+  color: $lightcyan;
+}
+
+.verydownlink {
+  color: $green;
+}
+
+.close {
+  background-color: $red;
+  color: $background;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+button:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.hover-module {}
 
 /** EOF *************************************************/

@@ -1,0 +1,1 @@
+(defpoll volume :interval "1s"  "scripts/getvol")

@@ -1,8 +1,15 @@
 ;; **
 ;; ** Widgets config for EWW
-;; ** Created by : @adi1090x
+;; ** Created by : hadishahpuri
 ;; **
 
+(defvar eww "eww -c $HOME/.config/eww/bar_2")
+;; Includes
+(include "variables.yuck")
+(include "controls.yuck")
+(include "metrics.yuck")
+(include "pollers.yuck")
+(include "revealer.yuck")
 ;; ** Variables ***********************************************************************
 
 ;; Workspace vars
@@ -32,7 +39,7 @@
 
 ;; Volume vars
 (defpoll VOLICON :interval "1s" `scripts/volume --icon`)
-(defpoll VOLUME :interval "1s" `scripts/volume --get`)
+(defpoll VOLSTAT :interval "1s" `scripts/volume --get`)
 
 ;; Network
 (defpoll WIFIICON :interval "10s" `scripts/check-network --icon`)
@@ -44,7 +51,7 @@
 
 ;; Icons
 (defvar SCREEN_SHOT "images/screen_shot.png")
-(defpoll ICON :interval "15m" `scripts/idle_icon.sh`)
+(defvar IDLE "images/idle.jpeg")
 
 ;; ** Widgets *************************************************************************
 
@@ -106,7 +113,7 @@
 			(button :onclick "scripts/volume --toggle"
 				(box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 					(box :style "background-image: url('${VOLICON}');" :class "trayicon")
-					(label :class "infotext" :halign "start" :text VOLUME)))
+					(label :class "infotext" :halign "start" :text VOLSTAT)))
 			(button :onclick "scripts/widget_apps --nm"
 				(box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 					(box :style "background-image: url('${WIFIICON}');" :class "trayicon")
@@ -115,7 +122,6 @@
 				(box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 					(box :style "background-image: url('${IMAGE}');" :class "face")
 					(label :class "infotext" :halign "start" :text USER))))))
-
 
 ;; status_bar
 (defwidget status_bar [] 
@@ -134,15 +140,15 @@
 			(button :style "background-image: url('images/icons/apps/notes.png');" :class "appicon" :onclick "scripts/widget_apps --ge")
 		)
         (box :class "border-right"
-		(box :orientation "h" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
-			(box :class "album_art" :vexpand "false" :hexpand "false" :style "background-image: url('${COVER}');")
-			(box :class "musicbox" :orientation "v" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
-				(label :class "song" :halign "start" :wrap "false" :limit-width 20 :text SONG)
-				(label :class "artist" :halign "start" :wrap "false" :limit-width 20 :text ARTIST)))
-		(box :class "musicbuttons" :orientation "h" :spacing 10 :valign "center" :halign "end" :space-evenly "false" :vexpand "false" :hexpand "false"
-			(button :style "background-image: url('images/icons/music/previous-button.png');" :class "trackbutton" :onclick "scripts/music_info --prev")
-			(button :style "background-image: url('${STATUS}');" :class "playbutton" :onclick "scripts/music_info --toggle")
-			(button :style "background-image: url('images/icons/music/next-button.png');" :class "trackbutton" :onclick "scripts/music_info --next")))
+		    (box :orientation "h" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+			    (box :class "album_art" :vexpand "false" :hexpand "false" :style "background-image: url('${COVER}');")
+			    (box :class "musicbox" :orientation "v" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+				    (label :class "song" :halign "start" :wrap "false" :limit-width 20 :text SONG)
+				    (label :class "artist" :halign "start" :wrap "false" :limit-width 20 :text ARTIST)))
+		    (box :class "musicbuttons" :orientation "h" :spacing 10 :valign "center" :halign "end" :space-evenly "false" :vexpand "false" :hexpand "false"
+			    (button :style "background-image: url('images/icons/music/previous-button.png');" :class "trackbutton" :onclick "scripts/music_info --prev")
+			    (button :style "background-image: url('${STATUS}');" :class "playbutton" :onclick "scripts/music_info --toggle")
+			    (button :style "background-image: url('images/icons/music/next-button.png');" :class "trackbutton" :onclick "scripts/music_info --next")))
         (box
 		    (box :orientation "h" :spacing 16 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 			    (button :onclick "scripts/widget_apps --ml"
@@ -153,22 +159,42 @@
 				    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 					    (box :style "background-image: url('${BATICON}');" :class "trayicon")
 					    (label :class "infotext" :halign "start" :text BATPERC)))
-			    (button :onclick "scripts/volume --toggle"
+                (box :space-evenly false
+                    :class "hover-module"
+                    (revealer-on-hover :class "hl-on-hover"
+                        :var revealVolume
+                        :varname "revealVolume"
+                        :transition "slideright"
+                        :class "volume"
+
+                        (hovered-sign :var revealVolume
+                            (label :text "")
+                            (label :text "")
+                        )
+                        (metric :icon ""
+                            :class "volume"
+                            :value volume
+                            :onchange "amixer -D pulse sset Master {}%")
+                        (box :orientation "h" :spacing 8 :valign "top" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+					        (button :onclick "scripts/volume --toggle"
 				    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 					    (box :style "background-image: url('${VOLICON}');" :class "trayicon")
-					    (label :class "infotext" :halign "start" :text VOLUME)))
+					    (label :class "infotext" :halign "start" :text VOLSTAT))))
+                    )
+                )
+
 			    (button :onclick "scripts/widget_apps --nm"
 				    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 					    (box :style "background-image: url('${WIFIICON}');" :class "trayicon")
 					    (label :class "infotext" :halign "start" :text NETSTAT)))
                 (button :onclick "scripts/screen_shot.sh"
-				    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+				    (box :orientation "h" :spacing 8 :valign "top" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 					    (box :style "background-image: url('${SCREEN_SHOT}');" :class "trayicon")
-					    ))
+					))
                 (button :onclick "scripts/idle.sh"
-				    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+				    (box :orientation "h" :spacing 8 :valign "top" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 					    (box :style "background-image: url('${IDLE}');" :class "trayicon")
-					    ))
+					))
             ))
     ))
 
@@ -181,7 +207,7 @@
         :y "1px"
         :width "180px"
         :height "50px"
-        :anchor "top center")
+        :anchor "bottom center")
     :stacking "fg"
     :exclusive true
     :windowtype "dock"
