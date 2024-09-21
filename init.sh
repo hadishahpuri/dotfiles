@@ -90,7 +90,9 @@ yay -Sy \
     pamixer \
     difftastic \
     eww \
-    networkmanager-dmenu
+    networkmanager-dmenu \
+    acpi \
+    difftastic
 
 # Hyprland
 rm -rf ~/.config/hypr/ 2>&1 /dev/null

@@ -12,47 +12,6 @@
 (include "revealer.yuck")
 ;; ** Variables ***********************************************************************
 
-;; Workspace vars
-(defpoll WMS :interval "1s" `wmctrl -d | grep '*' | cut -d ' ' -f13`)
-
-;; Time vars
-(defpoll TIME :interval "5s" `date +\"%I:%M %p\"`)
-(defpoll DATE :interval "5s" `date +\"%A, %B %d\"`)
-
-;; Weather vars
-(defpoll ICON :interval "15m" `scripts/weather_info --icon`)
-(defpoll TEMP :interval "15m" `scripts/weather_info --temp`)
-(defpoll HEX :interval "15m" `scripts/weather_info --hex`)
-
-;; Music vars
-(defpoll SONG :interval "1s" `scripts/music_info --song`)
-(defpoll ARTIST :interval "1s" `scripts/music_info --artist`)
-(defpoll COVER :interval "1s" `scripts/music_info --cover`)
-(defpoll STATUS :interval "1s" `scripts/music_info --status`)
-
-;; Mail vars
-(defpoll MAILS :interval "5m" `scripts/mails`)
-
-;; Battery vars
-(defpoll BATICON :interval "1m" `scripts/battery --icon`)
-(defpoll BATPERC :interval "1m" `scripts/battery --perc`)
-
-;; Volume vars
-(defpoll VOLICON :interval "1s" `scripts/volume --icon`)
-(defpoll VOLSTAT :interval "1s" `scripts/volume --get`)
-
-;; Network
-(defpoll WIFIICON :interval "10s" `scripts/check-network --icon`)
-(defpoll NETSTAT :interval "10s" `scripts/check-network --stat`)
-
-;; User
-(defvar IMAGE "images/profile.jpg")
-(defpoll USER :interval "10m" `whoami`)
-
-;; Icons
-(defvar SCREEN_SHOT "images/screen_shot.png")
-(defvar IDLE "images/idle.jpeg")
-
 ;; ** Widgets *************************************************************************
 
 ;; search
@@ -135,7 +94,7 @@
 			    (label :class "weathertemp" :text TEMP)))
 		(box :orientation "h" :spacing 5 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
 			(button :style "background-image: url('images/icons/apps/terminal.png');" :class "appicon" :onclick "scripts/widget_apps --tr")
-			(button :style "background-image: url('images/icons/apps/firefox.png');" :class "appicon" :onclick "scripts/widget_apps --ff")
+			(button :style "background-image: url('images/icons/apps/chrome.png');" :class "appicon" :onclick "scripts/widget_apps --ch")
 			(button :style "background-image: url('images/icons/apps/files.png');" :class "appicon" :onclick "scripts/widget_apps --fm")
 			(button :style "background-image: url('images/icons/apps/notes.png');" :class "appicon" :onclick "scripts/widget_apps --ge")
 		)
@@ -205,7 +164,7 @@
     :monitor 0
     :geometry (geometry :x "20px"
         :y "1px"
-        :width "180px"
+        :width "100%"
         :height "50px"
         :anchor "bottom center")
     :stacking "fg"

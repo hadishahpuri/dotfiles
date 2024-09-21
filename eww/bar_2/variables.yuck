@@ -2,4 +2,9 @@
 (defvar revealDocker false)
 (defvar revealGithub false)
 (defvar revealVolume false)
+(defvar revealCalendar false)
 (defvar revealNotify false)
+(defvar IMAGE "images/profile.jpg")
+;; Icons
+(defvar SCREEN_SHOT "images/screen_shot.png")
+(defvar IDLE "images/icons/idle-on-icon.png")

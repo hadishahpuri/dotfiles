@@ -1,16 +1,19 @@
 #!/bin/bash
 
 if [[ "$1" == "--tr" ]]; then
-	alacritty --working-directory ~ &
+	wezterm &
 
 elif [[ "$1" == "--ff" ]]; then
 	firefox &
+
+elif [[ "$1" == "--ch" ]]; then
+	$BROWSER &
 
 elif [[ "$1" == "--fm" ]]; then
 	thunar ~ &
 
 elif [[ "$1" == "--ge" ]]; then
-	geany &
+	wezterm start -- nvim ~/stuff.txt &
 
 elif [[ "$1" == "--dc" ]]; then
 	discord &
@@ -19,10 +22,10 @@ elif [[ "$1" == "--tg" ]]; then
 	telegram-desktop &
 
 elif [[ "$1" == "--rd" ]]; then
-	firefox --new-tab "https://reddit.com"
+	$BROWSER --new-tab "https://reddit.com"
 
 elif [[ "$1" == "--ml" ]]; then
-	firefox --new-tab "https://mail.google.com"
+	$BROWSER --new-tab "https://mail.google.com"
 
 elif [[ "$1" == "--pow" ]]; then
 	xfce4-power-manager-settings &
