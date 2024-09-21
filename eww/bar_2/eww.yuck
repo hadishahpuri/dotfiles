@@ -142,10 +142,12 @@
                     )
                 )
 
-			    (button :onclick "scripts/widget_apps --nm"
-				    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-					    (box :style "background-image: url('${WIFIICON}');" :class "trayicon")
-					    (label :class "infotext" :halign "start" :text NETSTAT)))
+                (box :class "systray" 
+                    (systray :prepend-new true))
+			    ;;(button :onclick "scripts/widget_apps --nm"
+				;;    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+				;;	    (box :style "background-image: url('${WIFIICON}');" :class "trayicon")
+				;;	    (label :class "infotext" :halign "start" :text NETSTAT)))
                 (button :onclick "scripts/screen_shot.sh"
 				    (box :orientation "h" :spacing 8 :valign "top" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 					    (box :style "background-image: url('${SCREEN_SHOT}');" :class "trayicon")
