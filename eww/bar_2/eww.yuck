@@ -97,6 +97,7 @@
 			(button :style "background-image: url('images/icons/apps/chrome.png');" :class "appicon" :onclick "scripts/widget_apps --ch")
 			(button :style "background-image: url('images/icons/apps/files.png');" :class "appicon" :onclick "scripts/widget_apps --fm")
 			(button :style "background-image: url('images/icons/apps/notes.png');" :class "appicon" :onclick "scripts/widget_apps --ge")
+			(button :style "background-image: url('images/icons/apps/soundcloud.png');" :class "appicon" :onclick "scripts/widget_apps --scl")
 		)
         (box :class "border-right"
 		    (box :orientation "h" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"

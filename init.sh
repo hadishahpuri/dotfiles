@@ -92,7 +92,8 @@ yay -Sy \
     eww \
     networkmanager-dmenu \
     acpi \
-    difftastic
+    difftastic \
+    playerctl
 
 # Hyprland
 rm -rf ~/.config/hypr/ 2>&1 /dev/null

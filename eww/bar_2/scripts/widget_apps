@@ -27,6 +27,9 @@ elif [[ "$1" == "--rd" ]]; then
 elif [[ "$1" == "--ml" ]]; then
 	$BROWSER --new-tab "https://mail.google.com"
 
+elif [[ "$1" == "--scl" ]]; then
+	$BROWSER --new-tab "https://soundcloud.com/"
+
 elif [[ "$1" == "--pow" ]]; then
 	xfce4-power-manager-settings &
 

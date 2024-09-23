@@ -377,11 +377,13 @@ button:hover {
 .systray menu {
   border-radius: 10px;
   padding: 5px 0px;
+  margin: 20px;
 
   background-color: white;
 
   >menuitem {
     padding: 5px 5px;
+    margin: 5px;
 
     &:disabled label {
       color: gray;
