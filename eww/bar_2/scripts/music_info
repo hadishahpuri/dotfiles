@@ -44,19 +44,21 @@ get_time() {
 	fi	
 }
 get_ctime() {
-	ctime=`mpc status | grep "#" | awk '{print $3}' | sed 's|/.*||g'`
-	if [[ -z "$ctime" ]]; then
+	position=$(playerctl position | sed 's/\.//')
+	if [[ -z "$position" ]]; then
 		echo "0:00"
 	else
-		echo "$ctime"
+		echo "$position"
 	fi	
 }
 get_ttime() {
-	ttime=`mpc -f %time% current`
-	if [[ -z "$ttime" ]]; then
-		echo "0:00"
+	position=$(playerctl position | sed 's/\.//')
+    total_time=$(playerctl metadata mpris:length)
+    percent=$((($position * 100) / $total_time))
+	if [[ -z "$percent" ]]; then
+		echo "0"
 	else
-		echo "$ttime"
+		echo "$percent"
 	fi	
 }
 
