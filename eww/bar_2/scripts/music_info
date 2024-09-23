@@ -63,11 +63,11 @@ get_ttime() {
 ## Get cover
 get_cover() {
 	COVER=$(playerctl metadata mpris:artUrl)
-
-	if [ "$STATUS" != *"No players found"* ];then
-		echo "$COVER"
-	else
+    status=$(playerctl -s status)
+    if [ -z "${status}" ] || [ "$status" = "Stopped" ];then
 		echo "images/music.png"
+	else
+		echo "$COVER"
 	fi
 }
 
