@@ -93,11 +93,11 @@
 			    (label :class "weathericon" :style "color: ${HEX};" :text ICON)
 			    (label :class "weathertemp" :text TEMP)))
 		(box :orientation "h" :spacing 5 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
-			(button :style "background-image: url('images/icons/apps/terminal.png');" :class "appicon" :onclick "scripts/widget_apps --tr")
-			(button :style "background-image: url('images/icons/apps/chrome.png');" :class "appicon" :onclick "scripts/widget_apps --ch")
-			(button :style "background-image: url('images/icons/apps/files.png');" :class "appicon" :onclick "scripts/widget_apps --fm")
-			(button :style "background-image: url('images/icons/apps/notes.png');" :class "appicon" :onclick "scripts/widget_apps --ge")
-			(button :style "background-image: url('images/icons/apps/soundcloud.png');" :class "appicon" :onclick "scripts/widget_apps --scl")
+			(button :style "background-image: url('images/icons/apps/terminal.png');" :class "appicon hover" :onclick "scripts/widget_apps --tr")
+			(button :style "background-image: url('images/icons/apps/chrome.png');" :class "appicon hover" :onclick "scripts/widget_apps --ch")
+			(button :style "background-image: url('images/icons/apps/files.png');" :class "appicon hover" :onclick "scripts/widget_apps --fm")
+			(button :style "background-image: url('images/icons/apps/notes.png');" :class "appicon hover" :onclick "scripts/widget_apps --ge")
+			(button :style "background-image: url('images/icons/apps/soundcloud.png');" :class "appicon hover" :onclick "scripts/widget_apps --scl")
 		)
         (box :class "border-right"
 		    (box :orientation "h" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
@@ -106,9 +106,9 @@
 				    (label :class "song" :halign "start" :wrap "false" :limit-width 20 :text SONG)
 				    (label :class "artist" :halign "start" :wrap "false" :limit-width 20 :text ARTIST)))
 		    (box :class "musicbuttons" :orientation "h" :spacing 10 :valign "center" :halign "end" :space-evenly "false" :vexpand "false" :hexpand "false"
-			    (button :style "background-image: url('images/icons/music/previous-button.png');" :class "trackbutton" :onclick "scripts/music_info --prev")
-			    (button :style "background-image: url('${STATUS}');" :class "playbutton" :onclick "scripts/music_info --toggle")
-			    (button :style "background-image: url('images/icons/music/next-button.png');" :class "trackbutton" :onclick "scripts/music_info --next")))
+			    (button :style "background-image: url('images/icons/music/previous-button.png');" :class "trackbutton hover" :onclick "scripts/music_info --prev")
+			    (button :style "background-image: url('${STATUS}');" :class "playbutton hover" :onclick "scripts/music_info --toggle")
+			    (button :style "background-image: url('images/icons/music/next-button.png');" :class "trackbutton hover" :onclick "scripts/music_info --next")))
         (box
 		    (box :orientation "h" :spacing 16 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 			    (button :onclick "scripts/widget_apps --ml"
