@@ -15,6 +15,9 @@
 (defpoll ARTIST :interval "1s" `scripts/music_info --artist`)
 (defpoll COVER :interval "1s" `scripts/music_info --cover`)
 (defpoll STATUS :interval "1s" `scripts/music_info --status`)
+(defpoll SONG_TOTAL_TIME :interval "1s" `scripts/music_info --ttime`)
+(defpoll SONG_CURRENT_TIME :interval "1s" `scripts/music_info --ctime`)
+(defpoll SONG_TIME_PERCENT :interval "1s" `scripts/music_info --timep`)
 
 ;; Mail vars
 (defpoll MAILS :interval "5m" `scripts/mails`)

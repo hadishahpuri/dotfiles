@@ -43,15 +43,26 @@ get_time() {
 		echo "$time"
 	fi	
 }
-get_ctime() {
-	position=$(playerctl position | sed 's/\.//')
-	if [[ -z "$position" ]]; then
+
+get_ttime() {
+    total_time=$(playerctl metadata --format "{{ duration(mpris:length) }}")
+	if [[ -z "$total_time" ]]; then
 		echo "0:00"
 	else
-		echo "$position"
+		echo "$total_time"
 	fi	
 }
-get_ttime() {
+
+get_ctime() {
+    current_time=$(playerctl position --format "{{ duration(position) }}")
+	if [[ -z "$current_time" ]]; then
+		echo "0:00"
+	else
+		echo "$current_time"
+	fi	
+}
+
+get_timep() {
 	position=$(playerctl position | sed 's/\.//')
     total_time=$(playerctl metadata mpris:length)
     percent=$((($position * 100) / $total_time))
@@ -73,6 +84,10 @@ get_cover() {
 	fi
 }
 
+go_to_position() {
+    echo $1
+}
+
 ## Execute accordingly
 if [[ "$1" == "--song" ]]; then
 	get_song
@@ -86,6 +101,10 @@ elif [[ "$1" == "--ctime" ]]; then
 	get_ctime
 elif [[ "$1" == "--ttime" ]]; then
 	get_ttime
+elif [[ "$1" == "--timep" ]]; then
+	get_timep
+elif [[ "$1" == "--position" ]]; then
+	go_to_position
 elif [[ "$1" == "--cover" ]]; then
 	get_cover
 elif [[ "$1" == "--toggle" ]]; then
