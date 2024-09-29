@@ -85,7 +85,10 @@ get_cover() {
 }
 
 go_to_position() {
-    echo $1
+    total_time=$(playerctl metadata mpris:length)
+    pos=$((($1 * $total_time) / 100))
+    pos_seconds=$(($pos / 1000 / 1000))
+    playerctl position $pos_seconds
 }
 
 ## Execute accordingly
@@ -104,7 +107,7 @@ elif [[ "$1" == "--ttime" ]]; then
 elif [[ "$1" == "--timep" ]]; then
 	get_timep
 elif [[ "$1" == "--position" ]]; then
-	go_to_position
+	go_to_position $2
 elif [[ "$1" == "--cover" ]]; then
 	get_cover
 elif [[ "$1" == "--toggle" ]]; then

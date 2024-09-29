@@ -2,6 +2,7 @@
 (defvar revealDocker false)
 (defvar revealGithub false)
 (defvar revealVolume false)
+(defvar revealSongProgress false)
 (defvar revealCalendar false)
 (defvar revealNotify false)
 (defvar IMAGE "images/profile.jpg")

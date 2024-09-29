@@ -105,14 +105,43 @@
 			    (box :class "musicbox" :orientation "v" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
 				    (label :class "song" :halign "start" :wrap "false" :limit-width 20 :text SONG)
 				    (label :class "artist" :halign "start" :wrap "false" :limit-width 20 :text ARTIST)))
-            (box :orientation "h" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
-                (label :halign "start" :wrap "false" :limit-width 20 :text SONG_CURRENT_TIME)
-                (metric :icon ""
+
+                (box :space-evenly false
+                    :class "hover-module"
+                    (revealer-on-hover :class "hl-on-hover"
+                        :var revealSongProgress
+                        :varname "revealSongProgress"
+                        :transition "slideright"
+                        :class "volume"
+
+                        (hovered-sign :var revealSongProgress
+                            (label :text "")
+                            (label :text "")
+                        )
+                        (metric :icon ""
                             :class "volume"
                             :value SONG_TIME_PERCENT
-                            :onchange "scripts/music_info --position {}%")
-				(label :halign "start" :wrap "false" :limit-width 20 :text SONG_TOTAL_TIME)
-            )
+                            :onchange "scripts/music_info --position {}")
+                        (box :orientation "h" :spacing 8 :valign "top" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+					        (button 
+				            (box :orientation "h" :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false" 
+					            (label :halign "start" :wrap "false" :limit-width 20 :text SONG_CURRENT_TIME)))
+                        )
+                    )
+                )
+
+
+            ;;(box :orientation "h" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+            ;;    (label :halign "start" :wrap "false" :limit-width 20 :text SONG_CURRENT_TIME)
+            ;;    (metric :icon ""
+            ;;                :class "volume"
+            ;;                :value SONG_TIME_PERCENT
+            ;;                :onchange "scripts/music_info --position {}")
+			;;	(label :halign "start" :wrap "false" :limit-width 20 :text SONG_TOTAL_TIME)
+            ;;)
+
+
+
 		    (box :class "musicbuttons" :orientation "h" :spacing 10 :valign "center" :halign "end" :space-evenly "false" :vexpand "false" :hexpand "false"
 			    (button :style "background-image: url('images/icons/music/previous-button.png');" :class "trackbutton hover" :onclick "scripts/music_info --prev")
 			    (button :style "background-image: url('${STATUS}');" :class "playbutton hover" :onclick "scripts/music_info --toggle")
