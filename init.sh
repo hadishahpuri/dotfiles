@@ -98,6 +98,7 @@ yay -Sy \
 # Hyprland
 rm -rf ~/.config/hypr/ 2>&1 /dev/null
 ln -s ${PWD}/hypr ~/.config/hypr
+ln -s ${PWD}/scripts ~/.config/hypr/scripts
 
 # Bar
 sudo pacman -S \

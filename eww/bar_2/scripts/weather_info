@@ -9,8 +9,8 @@ cache_weather_hex=${cache_dir}/weather-hex
 cache_weather_icon=${cache_dir}/weather-icon
 
 ## Weather data
-KEY="YOUR_KEY"
-ID="CITY_ID"
+KEY="4feed988668bde6162afde32ca592d7d"
+ID="418863"
 UNIT="metric"	# Available options : 'metric' or 'imperial'
 
 ## Make cache dir
