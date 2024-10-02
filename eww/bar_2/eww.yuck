@@ -123,9 +123,8 @@
                             :value SONG_TIME_PERCENT
                             :onchange "scripts/music_info --position {}")
                         (box :orientation "h" :spacing 8 :valign "top" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-					        (button 
 				            (box :orientation "h" :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false" 
-					            (label :halign "start" :wrap "false" :limit-width 20 :text SONG_CURRENT_TIME)))
+					            (label :class "song-time" :halign "start" :wrap "false" :limit-width 20 :text SONG_CURRENT_TIME))
                         )
                     )
                 )
