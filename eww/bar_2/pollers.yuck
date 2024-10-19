@@ -2,7 +2,7 @@
 (defpoll WMS :interval "1s" `wmctrl -d | grep '*' | cut -d ' ' -f13`)
 
 ;; Time vars
-(defpoll TIME :interval "5s" `date +\"%I:%M %p\"`)
+(defpoll TIME :interval "5s" `date +\"%I:%M %p %A\"`)
 (defpoll DATE :interval "10m" `date +\"%Y-%m-%d\"`)
 (defpoll PDATE :interval "10m" `~/.config/hypr/scripts/pcal.sh -t`)
 
