@@ -78,7 +78,7 @@ get_cover() {
 	COVER=$(playerctl metadata mpris:artUrl)
     status=$(playerctl -s status)
     if [ -z "${status}" ] || [ "$status" = "Stopped" ];then
-		echo "images/music.png"
+		echo "images/icons/apps/spotify.png"
 	else
 		echo "$COVER"
 	fi
