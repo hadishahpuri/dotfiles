@@ -93,9 +93,9 @@
 			    (label :class "weathericon" :style "color: ${HEX};" :text ICON)
 			    (label :class "weathertemp" :text TEMP)))
 		(box :orientation "h" :spacing 5 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
-			(button :style "background-image: url('images/icons/apps/terminal.png');" :class "appicon hover" :onclick "scripts/widget_apps --tr")
-			(button :style "background-image: url('images/icons/apps/chrome.png');" :class "appicon hover" :onclick "scripts/widget_apps --ch")
-			(button :style "background-image: url('images/icons/apps/files.png');" :class "appicon hover" :onclick "scripts/widget_apps --fm")
+			(button :style "background-image: url('images/icons/apps/terminal.png');" :class "appicon hover" :onclick "scripts/widget_apps --ws 1")
+			(button :style "background-image: url('images/icons/apps/chrome.png');" :class "appicon hover" :onclick "scripts/widget_apps --ws 2")
+			(button :style "background-image: url('images/icons/apps/files.png');" :class "appicon hover" :onclick "scripts/widget_apps --ws 3")
 			(button :style "background-image: url('images/icons/apps/notes.png');" :class "appicon hover" :onclick "scripts/widget_apps --ge")
 		)
         (box :class "border-right"

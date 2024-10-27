@@ -36,4 +36,7 @@ elif [[ "$1" == "--pow" ]]; then
 elif [[ "$1" == "--nm" ]]; then
 	networkmanager_dmenu
 
+elif [[ "$1" == "--ws" ]]; then
+	hyprctl dispatch workspace $2
+
 fi
