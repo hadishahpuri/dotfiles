@@ -54,6 +54,6 @@ vim.opt.smartcase = true
 -- Add indent for p/li in html
 vim.g.html_indent_tags = 'li│p'
 --clipboard
-vim.api.nvim_set_option("clipboard", "unnamedplus")
+vim.opt.clipboard = "unnamedplus"
 -- enable 24-bit colour
 vim.opt.termguicolors = true

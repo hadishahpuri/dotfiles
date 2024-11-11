@@ -16,94 +16,102 @@
 
 ;; search
 (defwidget search [] 
-	(box :class "dockbox"
-		(box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-			(button :style "background-image: url('images/icons/search.svg');" :class "genicon" :onclick "scripts/widget_search --search")
-			(button :style "background-image: url('images/icons/dashboard.svg');" :class "genicon" :onclick "scripts/widget_search --menu")
-			(label :class "workspace" :halign "start" :text WMS))))
+    (box :class "dockbox"
+        (box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+            (button :style "background-image: url('images/icons/search.svg');" :class "genicon" :onclick "scripts/widget_search --search")
+            (button :style "background-image: url('images/icons/dashboard.svg');" :class "genicon" :onclick "scripts/widget_search --menu")
+            (label :class "workspace" :halign "start" :text WMS))))
 
 ;; apps
 (defwidget apps [] 
-	(box :class "dockbox"
-		(box :orientation "h" :spacing 15 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-			(button :style "background-image: url('images/icons/apps/terminal.png');" :class "appicon" :onclick "scripts/widget_apps --tr")
-			(button :style "background-image: url('images/icons/apps/firefox.png');" :class "appicon" :onclick "scripts/widget_apps --ff")
-			(button :style "background-image: url('images/icons/apps/files.png');" :class "appicon" :onclick "scripts/widget_apps --fm")
-			(button :style "background-image: url('images/icons/apps/notes.png');" :class "appicon" :onclick "scripts/widget_apps --ge")
-			(button :style "background-image: url('images/icons/apps/discord.png');" :class "appicon" :onclick "scripts/widget_apps --dc")
-			(button :style "background-image: url('images/icons/apps/reddit.png');" :class "appicon" :onclick "scripts/widget_apps --rd")
-			(button :style "background-image: url('images/icons/apps/telegram.png');" :class "appicon" :onclick "scripts/widget_apps --tg"))))
+    (box :class "dockbox"
+        (box :orientation "h" :spacing 15 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+            (button :style "background-image: url('images/icons/apps/terminal.png');" :class "appicon" :onclick "scripts/widget_apps --tr")
+            (button :style "background-image: url('images/icons/apps/firefox.png');" :class "appicon" :onclick "scripts/widget_apps --ff")
+            (button :style "background-image: url('images/icons/apps/files.png');" :class "appicon" :onclick "scripts/widget_apps --fm")
+            (button :style "background-image: url('images/icons/apps/notes.png');" :class "appicon" :onclick "scripts/widget_apps --ge")
+            (button :style "background-image: url('images/icons/apps/discord.png');" :class "appicon" :onclick "scripts/widget_apps --dc")
+            (button :style "background-image: url('images/icons/apps/reddit.png');" :class "appicon" :onclick "scripts/widget_apps --rd")
+            (button :style "background-image: url('images/icons/apps/telegram.png');" :class "appicon" :onclick "scripts/widget_apps --tg"))))
 
 ;; weather
 (defwidget weather [] 
-	(box :class "dockbox"
-		(box :class "clockbox" :orientation "v" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
-			(label :class "time" :halign "start" :wrap "true" :limit-width 25 :text TIME)
-			(label :class "date" :halign "start" :wrap "true" :limit-width 25 :text DATE))
-		(box :class "weatherbox" :orientation "h" :spacing 0 :valign "center" :halign "end" :space-evenly "false" :vexpand "false" :hexpand "false"
-			(label :class "weathericon" :style "color: ${HEX};" :text ICON)
-			(label :class "weathertemp" :text TEMP))))
+    (box :class "dockbox"
+        (box :class "clockbox" :orientation "v" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+            (label :class "time" :halign "start" :wrap "true" :limit-width 25 :text TIME)
+            (label :class "date" :halign "start" :wrap "true" :limit-width 25 :text DATE))
+        (box :class "weatherbox" :orientation "h" :spacing 0 :valign "center" :halign "end" :space-evenly "false" :vexpand "false" :hexpand "false"
+            (label :class "weathericon" :style "color: ${HEX};" :text ICON)
+            (label :class "weathertemp" :text TEMP))))
 
 ;; music
 (defwidget music [] 
-	(box :class "dockbox"
-		(box :orientation "h" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
-			(box :class "album_art" :vexpand "false" :hexpand "false" :style "background-image: url('${COVER}');")
-			(box :class "musicbox" :orientation "v" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
-				(label :class "song" :halign "start" :wrap "false" :limit-width 20 :text SONG)
-				(label :class "artist" :halign "start" :wrap "false" :limit-width 20 :text ARTIST)))
-		(box :class "musicbuttons" :orientation "h" :spacing 10 :valign "center" :halign "end" :space-evenly "false" :vexpand "false" :hexpand "false"
-			(button :style "background-image: url('images/icons/music/previous-button.png');" :class "trackbutton" :onclick "scripts/music_info --prev")
-			(button :style "background-image: url('${STATUS}');" :class "playbutton" :onclick "scripts/music_info --toggle")
-			(button :style "background-image: url('images/icons/music/next-button.png');" :class "trackbutton" :onclick "scripts/music_info --next"))))
+    (box :class "dockbox"
+        (box :orientation "h" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+            (box :class "album_art" :vexpand "false" :hexpand "false" :style "background-image: url('${COVER}');")
+            (box :class "musicbox" :orientation "v" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+                (label :class "song" :halign "start" :wrap "false" :limit-width 20 :text SONG)
+                (label :class "artist" :halign "start" :wrap "false" :limit-width 20 :text ARTIST)))
+        (box :class "musicbuttons" :orientation "h" :spacing 10 :valign "center" :halign "end" :space-evenly "false" :vexpand "false" :hexpand "false"
+            (button :style "background-image: url('images/icons/music/previous-button.png');" :class "trackbutton" :onclick "scripts/music_info --prev")
+            (button :style "background-image: url('${STATUS}');" :class "playbutton" :onclick "scripts/music_info --toggle")
+            (button :style "background-image: url('images/icons/music/next-button.png');" :class "trackbutton" :onclick "scripts/music_info --next"))))
 
 ;; system
 (defwidget system [] 
-	(box :class "dockbox"
-		(box :orientation "h" :spacing 16 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-			(button :onclick "scripts/widget_apps --ml"
-				(box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-					(box :style "background-image: url('images/icons/gmail.png');" :class "trayicon")
-					(label :class "mails" :halign "start" :text MAILS)))
-			(button :onclick "scripts/widget_apps --pow"
-				(box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-					(box :style "background-image: url('${BATICON}');" :class "trayicon")
-					(label :class "infotext" :halign "start" :text BATPERC)))
-			(button :onclick "scripts/volume --toggle"
-				(box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-					(box :style "background-image: url('${VOLICON}');" :class "trayicon")
-					(label :class "infotext" :halign "start" :text VOLSTAT)))
-			(button :onclick "scripts/widget_apps --nm"
-				(box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-					(box :style "background-image: url('${WIFIICON}');" :class "trayicon")
-					(label :class "infotext" :halign "start" :text NETSTAT)))
-			(button :onclick "sidedar/toggle_sidebar"
-				(box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-					(box :style "background-image: url('${IMAGE}');" :class "face")
-					(label :class "infotext" :halign "start" :text USER))))))
-
+    (box :class "dockbox"
+        (box :orientation "h" :spacing 16 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+            (button :onclick "scripts/widget_apps --ml"
+                (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+                    (box :style "background-image: url('images/icons/gmail.png');" :class "trayicon")
+                    (label :class "mails" :halign "start" :text MAILS)))
+            (button :onclick "scripts/widget_apps --pow"
+                (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+                    (box :style "background-image: url('${BATICON}');" :class "trayicon")
+                    (label :class "infotext" :halign "start" :text BATPERC)))
+            (button :onclick "scripts/volume --toggle"
+                (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+                    (box :style "background-image: url('${VOLICON}');" :class "trayicon")
+                    (label :class "infotext" :halign "start" :text VOLSTAT)))
+            (button :onclick "scripts/widget_apps --nm"
+                (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+                    (box :style "background-image: url('${WIFIICON}');" :class "trayicon")
+                    (label :class "infotext" :halign "start" :text NETSTAT)))
+            (button :onclick "sidedar/toggle_sidebar"
+                (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+                    (box :style "background-image: url('${IMAGE}');" :class "face")
+                    (label :class "infotext" :halign "start" :text USER))))))
+(defwidget cal []
+	(box :class "cal" :orientation "v"
+	(box :class "cal-in"
+	(calendar :class "cal" 
+			  :day DATE_DAY 
+			  :year DATE_YEAR))))
 ;; status_bar
 (defwidget status_bar [] 
-	(box :class "dockbox"
+    (box :class "dockbox"
         (box
-		    (box :class "clockbox" :orientation "v" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
-			    (label :class "time" :halign "start" :wrap "true" :limit-width 25 :text TIME)
-			    (label :class "date" :halign "start" :wrap "true" :limit-width 35 :text '${DATE} - ${PDATE}'))
-		    (box :class "weatherbox" :orientation "h" :spacing 0 :valign "center" :halign "end" :space-evenly "false" :vexpand "false" :hexpand "false"
-			    (label :class "weathericon" :style "color: ${HEX};" :text ICON)
-			    (label :class "weathertemp" :text TEMP)))
-		(box :orientation "h" :spacing 5 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
-			(button :style "background-image: url('images/icons/apps/terminal.png');" :class "appicon hover" :onclick "scripts/widget_apps --ws 1")
-			(button :style "background-image: url('images/icons/apps/chrome.png');" :class "appicon hover" :onclick "scripts/widget_apps --ws 2")
-			(button :style "background-image: url('images/icons/apps/files.png');" :class "appicon hover" :onclick "scripts/widget_apps --ws 3")
-			(button :style "background-image: url('images/icons/apps/notes.png');" :class "appicon hover" :onclick "scripts/widget_apps --ge")
-		)
+            (button :class "clock_date_class"
+                :onclick "scripts/widget_pop.sh calendar"
+                (box :class "clockbox" :orientation "v" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+                    (label :class "time" :halign "start" :wrap "true" :limit-width 25 :text TIME)
+                    (label :class "date" :halign "start" :wrap "true" :limit-width 35 :text '${DATE} - ${PDATE}')
+                )
+            )
+        )
+
+        (box :orientation "h" :spacing 5 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+            (button :style "background-image: url('images/icons/apps/terminal.png');" :class "appicon hover" :onclick "scripts/widget_apps --ws 1")
+            (button :style "background-image: url('images/icons/apps/chrome.png');" :class "appicon hover" :onclick "scripts/widget_apps --ws 2")
+            (button :style "background-image: url('images/icons/apps/files.png');" :class "appicon hover" :onclick "scripts/widget_apps --ws 3")
+            (button :style "background-image: url('images/icons/apps/notes.png');" :class "appicon hover" :onclick "scripts/widget_apps --ge")
+        )
         (box :class "border-right"
-		    (box :orientation "h" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
-			    (box :class "album_art" :vexpand "false" :hexpand "false" :style "background-image: url('${COVER}');")
-			    (box :class "musicbox" :orientation "v" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
-				    (label :class "song" :halign "start" :wrap "false" :limit-width 20 :text SONG)
-				    (label :class "artist" :halign "start" :wrap "false" :limit-width 20 :text ARTIST)))
+            (box :orientation "h" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+                (box :class "album_art" :vexpand "false" :hexpand "false" :style "background-image: url('${COVER}');")
+                (box :class "musicbox" :orientation "v" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+                    (label :class "song" :halign "start" :wrap "false" :limit-width 20 :text SONG)
+                    (label :class "artist" :halign "start" :wrap "false" :limit-width 20 :text ARTIST)))
 
                 (box :space-evenly false
                     :class "hover-module"
@@ -122,8 +130,8 @@
                             :value SONG_TIME_PERCENT
                             :onchange "scripts/music_info --position {}")
                         (box :orientation "h" :spacing 8 :valign "top" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-				            (box :orientation "h" :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false" 
-					            (label :class "song-time" :halign "start" :wrap "false" :limit-width 20 :text SONG_CURRENT_TIME))
+                            (box :orientation "h" :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false" 
+                                (label :class "song-time" :halign "start" :wrap "false" :limit-width 20 :text SONG_CURRENT_TIME))
                         )
                     )
                 )
@@ -135,25 +143,25 @@
             ;;                :class "volume"
             ;;                :value SONG_TIME_PERCENT
             ;;                :onchange "scripts/music_info --position {}")
-			;;	(label :halign "start" :wrap "false" :limit-width 20 :text SONG_TOTAL_TIME)
+            ;;  (label :halign "start" :wrap "false" :limit-width 20 :text SONG_TOTAL_TIME)
             ;;)
 
 
 
-		    (box :class "musicbuttons" :orientation "h" :spacing 10 :valign "center" :halign "end" :space-evenly "false" :vexpand "false" :hexpand "false"
-			    (button :style "background-image: url('images/icons/music/previous-button.png');" :class "trackbutton hover" :onclick "scripts/music_info --prev")
-			    (button :style "background-image: url('${STATUS}');" :class "playbutton hover" :onclick "scripts/music_info --toggle")
-			    (button :style "background-image: url('images/icons/music/next-button.png');" :class "trackbutton hover" :onclick "scripts/music_info --next")))
+            (box :class "musicbuttons" :orientation "h" :spacing 10 :valign "center" :halign "end" :space-evenly "false" :vexpand "false" :hexpand "false"
+                (button :style "background-image: url('images/icons/music/previous-button.png');" :class "trackbutton hover" :onclick "scripts/music_info --prev")
+                (button :style "background-image: url('${STATUS}');" :class "playbutton hover" :onclick "scripts/music_info --toggle")
+                (button :style "background-image: url('images/icons/music/next-button.png');" :class "trackbutton hover" :onclick "scripts/music_info --next")))
         (box
-		    (box :orientation "h" :spacing 16 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-			    (button :onclick "scripts/widget_apps --ml"
-				    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-					    (box :style "background-image: url('images/icons/gmail.png');" :class "trayicon")
-					    (label :class "mails" :halign "start" :text MAILS)))
-			    (button :onclick "scripts/widget_apps --pow"
-				    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-					    (box :style "background-image: url('${BATICON}');" :class "trayicon")
-					    (label :class "infotext" :halign "start" :text BATPERC)))
+            (box :orientation "h" :spacing 16 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+                (button :onclick "scripts/widget_apps --ml"
+                    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+                        (box :style "background-image: url('images/icons/gmail.png');" :class "trayicon")
+                        (label :class "mails" :halign "start" :text MAILS)))
+                (button :onclick "scripts/widget_apps --pow"
+                    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+                        (box :style "background-image: url('${BATICON}');" :class "trayicon")
+                        (label :class "infotext" :halign "start" :text BATPERC)))
                 (box :space-evenly false
                     :class "hover-module"
                     (revealer-on-hover :class "hl-on-hover"
@@ -171,27 +179,27 @@
                             :value volume
                             :onchange "amixer -D pulse sset Master {}%")
                         (box :orientation "h" :spacing 8 :valign "top" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-					        (button :onclick "scripts/volume --toggle"
-				    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-					    (box :style "background-image: url('${VOLICON}');" :class "trayicon")
-					    (label :class "infotext" :halign "start" :text VOLSTAT))))
+                            (button :onclick "scripts/volume --toggle"
+                    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+                        (box :style "background-image: url('${VOLICON}');" :class "trayicon")
+                        (label :class "infotext" :halign "start" :text VOLSTAT))))
                     )
                 )
 
                 (box :class "systray" 
                     (systray :prepend-new true))
-			    ;;(button :onclick "scripts/widget_apps --nm"
-				;;    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-				;;	    (box :style "background-image: url('${WIFIICON}');" :class "trayicon")
-				;;	    (label :class "infotext" :halign "start" :text NETSTAT)))
+                ;;(button :onclick "scripts/widget_apps --nm"
+                ;;    (box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+                ;;      (box :style "background-image: url('${WIFIICON}');" :class "trayicon")
+                ;;      (label :class "infotext" :halign "start" :text NETSTAT)))
                 (button :onclick "scripts/screen_shot.sh"
-				    (box :orientation "h" :spacing 8 :valign "top" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-					    (box :style "background-image: url('${SCREEN_SHOT}');" :class "trayicon")
-					))
+                    (box :orientation "h" :spacing 8 :valign "top" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+                        (box :style "background-image: url('${SCREEN_SHOT}');" :class "trayicon")
+                    ))
                 (button :onclick "scripts/idle.sh"
-				    (box :orientation "h" :spacing 8 :valign "top" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-					    (box :style "background-image: url('${IDLE}');" :class "trayicon")
-					))
+                    (box :orientation "h" :spacing 8 :valign "top" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+                        (box :style "background-image: url('${IDLE}');" :class "trayicon")
+                    ))
             ))
     ))
 
@@ -282,3 +290,12 @@
     :exclusive true
     :windowtype "dock"
     (system))
+
+(defwindow calendar
+	:geometry (geometry :x "20px" 
+						:y "20px" 
+                        :anchor "bottom left"
+						:width "270px" 
+						:height "60px")
+    :monitor 0
+(cal))

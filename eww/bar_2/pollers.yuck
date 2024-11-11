@@ -5,6 +5,8 @@
 (defpoll TIME :interval "5s" `date +\"%I:%M %p %A\"`)
 (defpoll DATE :interval "10m" `date +\"%Y-%m-%d\"`)
 (defpoll PDATE :interval "10m" `~/.config/hypr/scripts/pcal.sh -t`)
+(defpoll DATE_DAY :interval "20h" "date '+%d'")
+(defpoll DATE_YEAR :interval "20h" "date '+%Y'")
 
 ;; Weather vars
 (defpoll ICON :interval "15m" `scripts/weather_info --icon`)
