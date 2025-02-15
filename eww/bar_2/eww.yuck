@@ -96,6 +96,7 @@
                 (box :class "clockbox" :orientation "v" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
                     (label :class "time" :halign "start" :wrap "true" :limit-width 25 :text TIME)
                     (label :class "date" :halign "start" :wrap "true" :limit-width 35 :text '${DATE} - ${PDATE}')
+                    (label :class "date" :halign "start" :wrap "true" :limit-width 35 :text WEATHER)
                 )
             )
         )
