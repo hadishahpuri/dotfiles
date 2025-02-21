@@ -77,3 +77,25 @@ language-servers = [ "docker-langserver", "scls" ]
 [[language]]
 name = "python"
 language-servers = [ "pylsp", "scls" ]
+
+[[language]]
+name = "go"
+language-servers = [ "gopls" ]
+
+[language-server.gopls]
+command = "gopls"
+
+[language-server.gopls.config]
+usePlaceholders = true
+analyses = { unusedparams = true, shadow = true }
+staticcheck = true
+
+[[language]]
+name = "bash"
+file-types = ["sh"]
+shebangs = ["bash", "sh"]
+language-servers = [ "bash-language-server" ]
+
+[language-server.bash-language-server]
+command = "bash-language-server"
+args = ["start"]

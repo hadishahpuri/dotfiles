@@ -5,13 +5,13 @@ line-number = "relative"
 mouse = false
 auto-completion = true
 auto-format = true
-bufferline = "always"
 idle-timeout = 20
 completion-trigger-len = 1
 cursorline = true
 rulers = []
 color-modes = true
 true-color = true
+clipboard-provider = "wayland"
 
 [editor.cursor-shape]
 insert = "bar"
