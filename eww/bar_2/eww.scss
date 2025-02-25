@@ -37,7 +37,7 @@ $urgent: $red;
 
 /** Bar ***********************************/
 .dockbox {
-  background-color: #F5EEE6;
+  background-color: #f5eee6;
   border: 1px solid #161616;
   border-radius: 12px;
 }
@@ -59,7 +59,7 @@ $urgent: $red;
 }
 
 .workspace {
-  background-color: #C04364;
+  background-color: #c04364;
   color: #ffffff;
   border: 2px solid #161616;
   border-radius: 1px;
@@ -96,9 +96,9 @@ $urgent: $red;
 }
 
 .weathertemp {
-  font-size: 14px;
+  font-size: 20px;
   font-weight: bold;
-  margin: 0px 0px 0px -5px;
+  margin: 0px 0px 0px 0px;
 }
 
 /** Music *************************************************/
@@ -149,7 +149,7 @@ $urgent: $red;
 
 /** System *************************************************/
 .mails {
-  background-color: #FFC8C8;
+  background-color: #ffc8c8;
   border: 0px solid #161616;
   border-radius: 16px;
   font-size: 14px;
@@ -167,7 +167,7 @@ $urgent: $red;
 }
 
 .infotext {
-  background-color: #DCD7CD;
+  background-color: #dcd7cd;
   border: 0px solid #161616;
   border-radius: 16px;
   font-size: 14px;
@@ -185,7 +185,7 @@ $urgent: $red;
 }
 
 .border-right {
-  border-right: 2px solid #FFC8C8;
+  border-right: 2px solid #ffc8c8;
   margin-right: 5px;
 }
 
@@ -202,7 +202,7 @@ $urgent: $red;
 .icon-module {
   margin: 0 5px;
 
-  &>&__icon {
+  & > &__icon {
     margin-right: 5px;
     font-family: "Font Awesome 5 Free Solid";
   }
@@ -371,7 +371,8 @@ button:hover {
   color: white;
 }
 
-.hover-module {}
+.hover-module {
+}
 
 .systray {
   color: #cdd6f4;
@@ -385,7 +386,7 @@ button:hover {
 
   background-color: white;
 
-  >menuitem {
+  > menuitem {
     padding: 5px 5px;
     margin: 5px;
 
@@ -409,7 +410,7 @@ button:hover {
 }
 
 .hover {
-  transition: box-shadow .3s;
+  transition: box-shadow 0.3s;
 }
 
 .hover:hover {

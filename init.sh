@@ -93,7 +93,8 @@ yay -Sy \
     networkmanager-dmenu \
     acpi \
     difftastic \
-    playerctl
+    playerctl \
+    brightnessctl
 
 # Hyprland
 rm -rf ~/.config/hypr/ 2>&1 /dev/null

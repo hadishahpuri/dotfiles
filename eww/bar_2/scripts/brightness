@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# Get brightness level
+get_brightness() {
+    m="$(brightnessctl m)"
+    g="$(brightnessctl g)"
+    c="$(expr $g \* 100)"
+    c="$(expr $c / $m)"
+    echo $c
+}
+
+# Set brightness level
+set_brightness() {
+    brightnessctl set $1%
+}
+
+# Get icons
+get_icon() {
+	brightness="$(get_brightness)"
+
+	if [[ ("$brightness" -ge "0") && ("$brightness" -le "30") ]]; then
+		echo "images/icons/brightness/low.png"
+	elif [[ ("$brightness" -ge "30") && ("$brightness" -le "60") ]]; then
+		echo "images/icons/brightness/mid.png"
+	elif [[ ("$brightness" -ge "60") && ("$brightness" -le "100") ]]; then
+		echo "images/icons/brightness/high.png"
+	fi
+}
+
+if [[ "$1" == "--get" ]]; then
+	get_brightness
+elif [[ "$1" == "--set" ]]; then
+	set_brightness $2
+elif [[ "$1" == "--icon" ]]; then
+	get_icon
+fi
+

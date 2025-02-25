@@ -1,4 +1,5 @@
 (defpoll volume :interval "1s"  "scripts/getvol")
+(defpoll brightness :interval "1s"  "scripts/brightness --get")
 (defpoll WMS :interval "1s" `wmctrl -d | grep '*' | cut -d ' ' -f13`)
 
 ;; Time vars
@@ -33,6 +34,10 @@
 ;; Volume vars
 (defpoll VOLICON :interval "1s" `scripts/volume --icon`)
 (defpoll VOLSTAT :interval "1s" `scripts/volume --get`)
+
+;; Brightness vars
+(defpoll BRIGHTICON :interval "1s" `scripts/brightness --icon`)
+(defpoll BRIGHTSTAT :interval "1s" `scripts/brightness --get`)
 
 ;; Network
 (defpoll WIFIICON :interval "10s" `scripts/check-network --icon`)
