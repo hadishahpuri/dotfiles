@@ -60,6 +60,12 @@ e = ":sh ~/dotfiles/scripts/helix.sh explorer $(~/dotfiles/scripts/helix.sh getf
 B = ":sh ~/dotfiles/scripts/helix.sh blame $(~/dotfiles/scripts/helix.sh getfileinfo)"
 r = ":pipe ~/dotfiles/scripts/helix.sh getfileinfo"
 x = ":sh ~/dotfiles/scripts/helix.sh copy $(~/dotfiles/scripts/helix.sh getfileinfo | awk \"{ print \\$1 }\")"
+"@" = [
+  "move_prev_word_start",
+  "move_next_word_end",
+  "search_selection",
+  "global_search",
+]
 
 [keys.normal."]"]
 b = "goto_next_buffer"

@@ -13,7 +13,7 @@
 (defpoll ICON :interval "15m" `scripts/weather_info --icon`)
 (defpoll TEMP :interval "15m" `scripts/weather_info --temp`)
 (defpoll HEX :interval "15m" `scripts/weather_info --hex`)
-(defpoll WEATHER :interval "1h" `~/dotfiles/scripts/wttr.sh`)
+(defpoll WEATHER :interval "15m" `~/dotfiles/scripts/wttr.sh`)
 
 ;; Music vars
 (defpoll SONG :interval "1s" `scripts/music_info --song`)
