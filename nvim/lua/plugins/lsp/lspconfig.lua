@@ -6,6 +6,7 @@ return {
 	dependencies = {
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "williamboman/mason-lspconfig.nvim" },
+		{ "nvim-java/nvim-java" },
 	},
 	config = function()
 		local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
@@ -57,6 +58,8 @@ return {
 			})
 		end)
 
+		require("java").setup()
+		require("lspconfig").jdtls.setup({})
 		require("mason-lspconfig").setup({
 			lazy = false,
 			ensure_installed = { "intelephense", "lua_ls" },
