@@ -78,7 +78,7 @@ yay -Sy \
     cronie \
     swaync \
     swww \
-    waypaper-git \
+    waypaper \
     udiskie \
     sassc \
     swayosd \
@@ -164,11 +164,7 @@ systemctl daemon-reload --user
 systemctl enable --now --user gnome-keyring-daemon
 
 # CRON setup
-crontab -l > mycron
-echo "1 * * * * sh ~/dotfiles/bing_wallpaper.sh" >> mycron
-echo "" >> mycron
-crontab mycron
-rm mycron
+$(./scripts/init_cron.sh)
 
 # Add default wallpapers
 ln -s ${PWD}/wallpapers/* ~/Pictures/
