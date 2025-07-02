@@ -1,13 +1,13 @@
 #!/bin/bash
 
 ## Get battery info
-BATTERY="$(acpi | awk -F ' ' 'END {print $4}' | tr -d \%,)"
-CHARGE="$(acpi | awk -F ' ' 'END {print $3}' | tr -d \,)"
+BATTERY="$(acpi | awk -F ' ' 'END {print $5}' | tr -d \%,)"
+CHARGE="$(acpi | awk -F ' ' 'END {print $4}' | tr -d \,)"
 
 main() {
-	if [[ ($CHARGE = *"Charging"*) && ($BATTERY -lt "100") ]]; then
+	if [[ ($CHARGE = *"charging"*) && ($BATTERY -lt "100") ]]; then
 		echo "images/icons/battery/charge.png"
-	elif [[ $CHARGE = *"Full"* ]]; then
+	elif [[ $BATTERY = *"100"* ]]; then
 		echo "images/icons/battery/full.png"
 	else
 		if [[ ($BATTERY -lt 100) && (($BATTERY -gt 65) || ($BATTERY -eq 65)) ]]; then
