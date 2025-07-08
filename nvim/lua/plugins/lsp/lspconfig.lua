@@ -58,7 +58,6 @@ return {
 			})
 		end)
 
-		require("java").setup()
 		require("mason-lspconfig").setup({
 			lazy = false,
 			ensure_installed = { "intelephense", "lua_ls" },
