@@ -7,7 +7,7 @@ return {
         size = 20,
         open_mapping = [[<leader>;]], -- Example mapping to toggle the terminal
         direction = "horizontal",     -- or "horizontal", "vertical"
-        -- Add more options as needed (e.g., shade_filetypes, highlights)
+        insert_mappings = false
     },
     config = function(_, opts)
         require("toggleterm").setup(opts)

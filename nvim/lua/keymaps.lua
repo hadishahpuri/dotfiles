@@ -1,3 +1,5 @@
+local Terminal = require('toggleterm.terminal').Terminal
+
 -- clear search
 vim.keymap.set('n', '<leader>\\', ':let @/=""<CR>:nohlsearch<CR>', { silent = true })
 
@@ -49,8 +51,22 @@ vim.keymap.set('n', '<C-f>', '<C-f>zz')
 vim.keymap.set('n', '<C-b>', '<C-b>zz')
 
 -- Lazygit
-vim.keymap.set('n', '<Leader>g', ':silent exec "!zellij action new-pane --name Lazygit -c -f -- lazygit"<CR>',
-    { silent = true })
+-- vim.keymap.set('n', '<Leader>g', ':silent exec "!zellij action new-pane --name Lazygit -c -f -- lazygit"<CR>',
+--     { silent = true })
+local lazygit = Terminal:new({
+    cmd = "lazygit",
+    dir = "git_dir",
+    direction = "float",
+    float_opts = {
+        border = "double",
+    },
+})
+
+function _lazygit_toggle()
+    lazygit:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "<Leader>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
 
 vim.keymap.set('v', '<Tab>', '>gv gv')
 vim.keymap.set('v', '<S-Tab>', '<gv gv')
