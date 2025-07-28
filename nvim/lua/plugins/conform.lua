@@ -19,7 +19,7 @@ return {
         formatters_by_ft = {
             lua = { "stylua" },
             scss = { "prettierd", "prettier", stop_after_first = true },
-            python = { "isort", "black", stop_after_first = true },
+            python = { "black", "ruff_format", stop_after_first = true },
             javascript = { "prettierd", "prettier", stop_after_first = true },
             typescript = { "prettierd", "prettier", stop_after_first = true },
             typescriptreact = { "prettierd", "prettier", stop_after_first = true },
