@@ -56,9 +56,9 @@ customCommands:
           - name: "✨ FEATURE"
             value: "feature"
           - name: "\U0001F41B BUG"
-            value: "bugFix"
+            value: "bugfix"
           - name: "\U0001F691️ HOTFIX"
-            value: "hotFix"
+            value: "hotfix"
       - type: "input"
         title: "Enter your task ID"
         key: "TaskId"
@@ -67,7 +67,7 @@ customCommands:
         title: "Enter your branch name"
         key: "BranchName"
         initialValue: ""
-    command: "git checkout -b {{.Form.BranchType}}/T{{.Form.TaskId}}-{{.Form.BranchName}}"
+    command: sh -c 'git checkout -b "$(echo "{{.Form.BranchType}}/{{.Form.TaskId}}-{{.Form.BranchName}}" | sed "s/ /-/g")"'
     loadingText: "Creating new branch..."
     output: terminal
   - key: "<c-p>"
