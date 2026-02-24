@@ -78,3 +78,10 @@ set fish_cursor_visual underscore
 
 ## Rust
 set -Ua fish_user_paths $HOME/.cargo/bin
+
+# pnpm
+set -gx PNPM_HOME "/Users/hadi/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

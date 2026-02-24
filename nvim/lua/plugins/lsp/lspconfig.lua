@@ -1,4 +1,3 @@
-local util = require("lspconfig.util")
 
 return {
     "neovim/nvim-lspconfig",
@@ -11,6 +10,7 @@ return {
         { "nvim-java/nvim-java" },
     },
     config = function()
+        local util = require("lspconfig.util")
         local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
         for type, icon in pairs(signs) do
             local hl = "DiagnosticSign" .. type

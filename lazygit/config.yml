@@ -83,5 +83,5 @@ customCommands:
     loadingText: "Creating merge request..."
     output: terminal
 git:
-  paging:
-    externalDiffCommand: difft --color=always --display=inline --syntax-highlight=on
+  pagers:
+    - externalDiffCommand: difft --color=always --display=inline --syntax-highlight=on

@@ -1,4 +1,5 @@
 -- RTL
+vim.opt.termguicolors = true
 vim.opt.termbidi = true
 vim.opt.mouse = a
 vim.opt.number = true
@@ -56,4 +57,3 @@ vim.g.html_indent_tags = 'li│p'
 --clipboard
 vim.opt.clipboard = "unnamedplus"
 -- enable 24-bit colour
-vim.opt.termguicolors = true
