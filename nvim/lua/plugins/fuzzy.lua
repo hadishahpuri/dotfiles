@@ -1,9 +1,9 @@
-getRoot = function()
-    local cwd = vim.loop.cwd()
+local initial_cwd = vim.loop.cwd()
 
-    local handle = io.popen("git -C " .. cwd .. " rev-parse --show-toplevel 2>/dev/null")
+getRoot = function()
+    local handle = io.popen("git -C " .. initial_cwd .. " rev-parse --show-toplevel 2>/dev/null")
     if not handle then
-        return cwd
+        return initial_cwd
     end
 
     local result = handle:read("*a")
@@ -12,7 +12,7 @@ getRoot = function()
     result = result:gsub("[\n\r]", "")
 
     if result == "" then
-        return cwd
+        return initial_cwd
     end
 
     return result
@@ -23,7 +23,7 @@ return {
     branch = 'main',
     -- cmd = 'fd --type f --hidden --exclude .git',
     keys = {
-        { '<Leader>f',  '<cmd>lua require("fzf-lua").files()<CR>',                                { silent = true } },
+        { '<Leader>f',  '<cmd>lua require("fzf-lua").files({ cwd = getRoot() })<CR>',              { silent = true } },
         { '<Leader>b',  '<cmd>lua require("fzf-lua").buffers()<CR>',                              { silent = true } },
         { '<Leader>o',  '<cmd>lua require("fzf-lua").files({ cwd = vim.fn.expand("%:p:h")})<CR>', { silent = true } },
         { '<Leader>iw', '<cmd>lua require("fzf-lua").grep_cword({ cwd = getRoot()  })<CR>',       { silent = true } },
