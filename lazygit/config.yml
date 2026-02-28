@@ -30,7 +30,7 @@ customCommands:
         title: "Enter your commit ID"
         key: "CommitId"
         suggestions:
-          command: "echo $(git rev-parse --abbrev-ref HEAD) | sed 's/^\\(bugFix\\|hotFix\\|feature\\)\\/T\\([0-9]*\\)\\-.*$/\\2/'"
+          command: "echo $(git rev-parse --abbrev-ref HEAD) | sed 's/^\\(bugFix\\|hotFix\\|feature\\)\\/\\(IQ-[0-9]*\\)\\-.*$/\\2/'"
       - type: "input"
         title: "Enter your commit message"
         key: "CommitMessage"
@@ -56,9 +56,9 @@ customCommands:
           - name: "✨ FEATURE"
             value: "feature"
           - name: "\U0001F41B BUG"
-            value: "bugfix"
+            value: "bugFix"
           - name: "\U0001F691️ HOTFIX"
-            value: "hotfix"
+            value: "hotFix"
       - type: "input"
         title: "Enter your task ID"
         key: "TaskId"
@@ -67,7 +67,7 @@ customCommands:
         title: "Enter your branch name"
         key: "BranchName"
         initialValue: ""
-    command: sh -c 'git checkout -b "$(echo "{{.Form.BranchType}}/{{.Form.TaskId}}-{{.Form.BranchName}}" | sed "s/ /-/g")"'
+    command: sh -c 'git checkout -b "$(echo "{{.Form.BranchType}}/IQ-{{.Form.TaskId}}-{{.Form.BranchName}}" | sed "s/ /-/g")"'
     loadingText: "Creating new branch..."
     output: terminal
   - key: "<c-p>"
