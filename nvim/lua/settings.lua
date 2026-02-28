@@ -38,7 +38,7 @@ vim.o.undodir = vim.fn.expand(vim.fn.stdpath("data") .. '/undodir')
 
 vim.opt.updatetime = 400
 vim.opt.backspace = { 'indent', 'eol', 'start' }
-vim.o.timeoutlen = 1000
+vim.o.timeoutlen = 300
 vim.o.ttimeoutlen = 100
 vim.opt.linebreak = true
 vim.opt.cindent = false

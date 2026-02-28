@@ -23,7 +23,7 @@ return {
     branch = 'main',
     -- cmd = 'fd --type f --hidden --exclude .git',
     keys = {
-        { '<Leader>f',  '<cmd>lua require("fzf-lua").files({ cwd = getRoot() })<CR>',              { silent = true } },
+        { '<Leader>f',  '<cmd>lua require("fzf-lua").files({ cwd = getRoot() })<CR>',             { silent = true } },
         { '<Leader>b',  '<cmd>lua require("fzf-lua").buffers()<CR>',                              { silent = true } },
         { '<Leader>o',  '<cmd>lua require("fzf-lua").files({ cwd = vim.fn.expand("%:p:h")})<CR>', { silent = true } },
         { '<Leader>iw', '<cmd>lua require("fzf-lua").grep_cword({ cwd = getRoot()  })<CR>',       { silent = true } },
