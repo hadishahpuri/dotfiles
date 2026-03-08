@@ -1,5 +1,5 @@
 return {
-    "hadishahpuri/nvimlaunch",
+    dir = "~/projects/nvimlaunch",
     keys = {
         { "<leader>ln", "<cmd>NvimLaunch<cr>", desc = "NvimLaunch" },
     },

@@ -8,7 +8,8 @@ return {
         open_mapping = [[<leader>;]], -- Example mapping to toggle the terminal
         direction = "horizontal",     -- or "horizontal", "vertical"
         insert_mappings = false,
-        auto_scroll = false
+        auto_scroll = false,
+        dir = "."
     },
     config = function(_, opts)
         require("toggleterm").setup(opts)
