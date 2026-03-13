@@ -57,3 +57,4 @@ vim.g.html_indent_tags = 'li│p'
 --clipboard
 vim.opt.clipboard = "unnamedplus"
 -- enable 24-bit colour
+vim.opt.autochdir = false

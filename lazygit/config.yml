@@ -30,7 +30,7 @@ customCommands:
         title: "Enter your commit ID"
         key: "CommitId"
         suggestions:
-          command: "echo $(git rev-parse --abbrev-ref HEAD) | sed 's/^\\(bugFix\\|hotFix\\|feature\\)\\/\\(IQ-[0-9]*\\)\\-.*$/\\2/'"
+          command: "git rev-parse --abbrev-ref HEAD | sed 's/^[a-zA-Z]*\\/\\(IQ-[0-9]*\\).*/\\1/'"
       - type: "input"
         title: "Enter your commit message"
         key: "CommitMessage"
@@ -79,7 +79,27 @@ customCommands:
         suggestions:
           preset: "branches"
         initialValue: "develop"
-    command: "~/dotfiles/lazygit/merge_request.sh {{.Form.Target}}"
+      - type: "menu"
+        title: "Assignee"
+        key: "Assignee"
+        options:
+          - name: "Me"
+            value: ""
+          - name: "Hamed"
+            value: "11276575"
+          - name: "Amin"
+            value: "11276572"
+      - type: "menu"
+        title: "Reviewer"
+        key: "Reviewer"
+        options:
+          - name: "None"
+            value: ""
+          - name: "Hamed"
+            value: "11276575"
+          - name: "Amin"
+            value: "11276572"
+    command: "~/dotfiles/lazygit/merge_request.sh '{{.Form.Target}}' '{{.Form.Assignee}}' '{{.Form.Reviewer}}'"
     loadingText: "Creating merge request..."
     output: terminal
 git:

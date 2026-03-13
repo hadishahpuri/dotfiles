@@ -9,7 +9,9 @@ return {
         direction = "horizontal",     -- or "horizontal", "vertical"
         insert_mappings = false,
         auto_scroll = false,
-        dir = "."
+        dir = function()
+            return vim.g.startup_cwd
+        end,
     },
     config = function(_, opts)
         require("toggleterm").setup(opts)

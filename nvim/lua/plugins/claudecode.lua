@@ -1,7 +1,13 @@
 return {
     "coder/claudecode.nvim",
     dependencies = { "folke/snacks.nvim" },
-    config = true,
+    opts = {
+        terminal = {
+            cwd = function()
+                return vim.g.startup_cwd
+            end,
+        },
+    },
     keys = {
         { "<leader>a",  nil,                              desc = "AI/Claude Code" },
         { "<leader>ac", "<cmd>ClaudeCode<cr>",            desc = "Toggle Claude" },
