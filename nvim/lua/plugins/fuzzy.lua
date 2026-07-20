@@ -75,7 +75,21 @@ return {
             },
             files = {
                 cmd = 'fd --type f --hidden --exclude .git',
-            }
+            },
+            grep = {
+                previewer = "builtin",
+            },
+            previewers = {
+                builtin = {
+                    -- Disabled: treesitter-context's sticky header races with async TS
+                    -- parsing when scrolling fast through preview results, causing
+                    -- `attempt to call method 'range' (a nil value)` crashes.
+                    -- https://github.com/ibhagwan/fzf-lua/issues/1922
+                    treesitter = {
+                        enabled = false,
+                    },
+                },
+            },
         })
     end
 }

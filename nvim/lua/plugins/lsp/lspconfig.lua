@@ -10,8 +10,7 @@ return {
         { "nvim-java/nvim-java" },
     },
     config = function()
-        local util = require("lspconfig.util")
-        local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+        local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
         for type, icon in pairs(signs) do
             local hl = "DiagnosticSign" .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -32,51 +31,85 @@ return {
         local newTable = vim.tbl_extend("force", table, { bg = "NONE", ctermbg = "NONE" })
         vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", newTable)
 
-        -- This is where all the LSP shenanigans will live
-        local lsp_zero = require("lsp-zero")
-        lsp_zero.extend_lspconfig()
+        -- Give every server nvim-cmp's completion capabilities on top of the defaults
+        local capabilities = vim.tbl_deep_extend(
+            "force",
+            vim.lsp.protocol.make_client_capabilities(),
+            require("cmp_nvim_lsp").default_capabilities()
+        )
+        vim.lsp.config("*", { capabilities = capabilities })
 
-        --- if you want to know more about lsp-zero and mason.nvim
-        --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
-        lsp_zero.on_attach(function(client, bufnr)
-            -- see :help lsp-zero-keybindings
-            -- to learn the available actions
-            lsp_zero.default_keymaps({ buffer = bufnr })
-            vim.api.nvim_create_autocmd("CursorHold", {
-                pattern = "*",
-                callback = function()
-                    vim.diagnostic.open_float(0, {
-                        scope = "cursor",
-                        focusable = false,
-                        close_events = {
-                            "CursorMoved",
-                            "CursorMovedI",
-                            "BufHidden",
-                            "InsertCharPre",
-                            "WinLeave",
-                        },
-                    })
-                end,
-            })
-        end)
+        vim.api.nvim_create_autocmd("LspAttach", {
+            callback = function(args)
+                local bufnr = args.buf
+                local map = function(mode, lhs, rhs, desc)
+                    vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+                end
 
+                map("n", "gd", vim.lsp.buf.definition, "Go to definition")
+                map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
+                map("n", "gi", vim.lsp.buf.implementation, "Go to implementation")
+                map("n", "go", vim.lsp.buf.type_definition, "Go to type definition")
+                map("n", "gr", vim.lsp.buf.references, "Go to reference")
+                map("n", "<F2>", vim.lsp.buf.rename, "Rename symbol")
+                map("n", "<F3>", function()
+                    vim.lsp.buf.format({ async = true })
+                end, "Format file")
+                map("x", "<F3>", function()
+                    vim.lsp.buf.format({ async = true })
+                end, "Format selection")
+                map("n", "<F4>", vim.lsp.buf.code_action, "Execute code action")
+
+                vim.api.nvim_create_autocmd("CursorHold", {
+                    buffer = bufnr,
+                    callback = function()
+                        vim.diagnostic.open_float(0, {
+                            scope = "cursor",
+                            focusable = false,
+                            close_events = {
+                                "CursorMoved",
+                                "CursorMovedI",
+                                "BufHidden",
+                                "InsertCharPre",
+                                "WinLeave",
+                            },
+                        })
+                    end,
+                })
+            end,
+        })
+
+        -- Installs servers via Mason and enables them with vim.lsp.enable()
         require("mason-lspconfig").setup({
-            lazy = false,
-            ensure_installed = { "intelephense", "lua_ls", "pyright", "black", "ruff", "tsserver" },
-            handlers = {
-                lsp_zero.default_setup,
-                lua_ls = function()
-                    -- (Optional) Configure lua language server for neovim
-                    local lua_opts = lsp_zero.nvim_lua_ls()
-                    require("lspconfig").lua_ls.setup(lua_opts)
-                end,
+            ensure_installed = { "intelephense", "lua_ls", "pyright", "ts_ls" },
+        })
+
+        -- Neovim-aware Lua language server
+        vim.lsp.config("lua_ls", {
+            settings = {
+                Lua = {
+                    telemetry = { enable = false },
+                    runtime = { version = "LuaJIT" },
+                    diagnostics = { globals = { "vim" } },
+                    workspace = {
+                        checkThirdParty = false,
+                        library = {
+                            vim.env.VIMRUNTIME .. "/lua",
+                            vim.fn.stdpath("config") .. "/lua",
+                        },
+                    },
+                },
             },
         })
 
-        require("lspconfig").pyright.setup({
-            root_dir = util.root_pattern("manage.py", "pyproject.toml", "setup.py", ".git"),
+        vim.lsp.config("pyright", {
+            root_dir = function(bufnr, on_dir)
+                local fname = vim.api.nvim_buf_get_name(bufnr)
+                local root = vim.fs.root(fname, { "manage.py", "pyproject.toml", "setup.py", ".git" })
+                on_dir(root)
+            end,
             on_attach = function()
-                print("✔ Pyright attached to buffer")
+                vim.notify("Pyright attached to buffer", vim.log.levels.INFO)
             end,
             settings = {
                 python = {
@@ -85,7 +118,7 @@ return {
                         typeCheckingMode = "basic",
                         autoSearchPaths = true,
                         useLibraryCodeForTypes = true,
-                        extraPaths = { vim.fn.getcwd() }
+                        extraPaths = { vim.fn.getcwd() },
                     },
                 },
             },

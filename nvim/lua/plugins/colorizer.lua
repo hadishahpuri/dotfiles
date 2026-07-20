@@ -1,5 +1,5 @@
 return {
-    'norcalli/nvim-colorizer.lua',
+    'catgoose/nvim-colorizer.lua',
     branch = 'master',
     lazy = false,
     config = function()
